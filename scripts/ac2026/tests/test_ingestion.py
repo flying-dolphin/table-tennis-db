@@ -11,14 +11,14 @@ import urllib.error
 from pathlib import Path
 from unittest.mock import patch
 
-from scripts.ac2006.common import EVENT_NAME, ROOT, PROJECTS, read_json, timestamp, write_json
-from scripts.ac2006.finalize import validate_current
-from scripts.ac2006.import_current import import_snapshot
-from scripts.ac2006.normalize import (competitor_players, normalize_brackets,
+from scripts.ac2026.common import EVENT_NAME, ROOT, PROJECTS, ROUND_NAMES, read_json, timestamp, write_json
+from scripts.ac2026.finalize import validate_current
+from scripts.ac2026.import_current import import_snapshot
+from scripts.ac2026.normalize import (competitor_players, normalize_brackets,
     normalize_match, normalize_team, result_fields, round_meta)
-from scripts.ac2006.scrape import capture, load_capture
-from scripts.ac2006.refresh import event_lock
-from scripts.ac2006.generate_crontab import generate_crontab
+from scripts.ac2026.scrape import capture, load_capture
+from scripts.ac2026.refresh import event_lock
+from scripts.ac2026.generate_crontab import generate_crontab
 
 FIXTURE = Path(__file__).parent / "fixtures/official_samples.json"
 REVERSED = "M.TEAM--------------.QFNL.00020000"
@@ -104,6 +104,36 @@ class NormalizeTests(unittest.TestCase):
         self.assertEqual(round_meta("M.SINGLES-----------.1732", "PREL")["round_code"], "P17_32")
         with self.assertRaises(ValueError):
             round_meta("M.SINGLES-----------.NEW")
+
+    def test_mixed_doubles_position_round_9_to_16(self):
+        for draw in (None, "PREL", "MAIN"):
+            with self.subTest(draw=draw):
+                meta = round_meta("X.DOUBLES-----------.916-", draw)
+                self.assertEqual(meta["stage_code"], "POSITION_DRAW")
+                self.assertEqual(meta["round_code"], "P9_16")
+                self.assertEqual(meta["round_label"], "Pos. 9-16")
+                self.assertEqual(meta["round_order"], 93)
+        self.assertEqual(ROUND_NAMES["P9_16"], ("Pos. 9-16", "第9至16名排位赛"))
+
+    def test_brackets_sort_and_preserve_position_round_9_to_16(self):
+        phase = copy.deepcopy(samples()["brackets"][0]["Phases"][0])
+        phase["Code"] = "X.DOUBLES-----------.916-"
+        for index, match in enumerate(phase["Matches"], 1):
+            match["Info"]["Code"] = f"X.DOUBLES-----------.916-.{index:04d}00--"
+        earlier = copy.deepcopy(phase)
+        earlier["Code"] = "X.DOUBLES-----------.1732"
+        for match in earlier["Matches"]:
+            match["Info"]["Code"] = match["Info"]["Code"].replace(".916-.", ".1732.")
+        rows = normalize_brackets([{"Code": "PREL", "Phases": [phase, earlier]}], "XD")
+        count = len(phase["Matches"])
+        self.assertEqual([row["round_code"] for row in rows], ["P17_32"] * count + ["P9_16"] * count)
+        for row, source in zip(rows[count:], phase["Matches"]):
+            self.assertEqual(row["stage_code"], "POSITION_DRAW")
+            self.assertEqual(row["sub_event_type_code"], "XD")
+            self.assertEqual(row["external_unit_code"], source["Info"]["Code"])
+            self.assertEqual(row["raw_source_payload"]["_original"], source)
+            self.assertIsNone(row["side_a_previous_unit"])
+            self.assertIsNone(row["side_b_previous_unit"])
 
     def test_time_zone_and_tbd(self):
         self.assertEqual(timestamp("2026-10-21", "10:00"), ("2026-10-21T10:00:00", "2026-10-21T05:00:00Z"))
@@ -321,7 +351,7 @@ class ImportTests(unittest.TestCase):
             self.conn.backup(target)
             target.close()
             write_json(root / "normalized/current.json", s)
-            command = [sys.executable, "-m", "scripts.ac2006.finalize", "--skip-refresh", "--db-path", str(path), "--data-root", str(root)]
+            command = [sys.executable, "-m", "scripts.ac2026.finalize", "--skip-refresh", "--db-path", str(path), "--data-root", str(root)]
             for flags in (["--dry-run"], [], ["--replace"]):
                 result = subprocess.run(command + flags, capture_output=True, text=True, cwd=ROOT)
                 self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
@@ -334,7 +364,7 @@ class ImportTests(unittest.TestCase):
                         self.assertEqual(check.execute("PRAGMA foreign_key_check").fetchall(), [])
 
     def test_default_finalize_preview_never_refreshes_or_changes_capture_artifacts(self):
-        from scripts.ac2006.finalize import main
+        from scripts.ac2026.finalize import main
         s = self.finished_snapshot()
         import_snapshot(self.conn, s)
         with tempfile.TemporaryDirectory() as tmp:
@@ -346,7 +376,7 @@ class ImportTests(unittest.TestCase):
             write_json(root / "normalized/current.json", s)
             original = (root / "normalized/current.json").read_bytes()
             argv = ["finalize", "--dry-run", "--db-path", str(path), "--data-root", str(root)]
-            with patch.object(sys, "argv", argv), patch("scripts.ac2006.finalize.refresh", create=True, side_effect=AssertionError("归档不应刷新")) as refresh, patch("scripts.ac2006.finalize.subprocess.run") as promote:
+            with patch.object(sys, "argv", argv), patch("scripts.ac2026.finalize.refresh", create=True, side_effect=AssertionError("归档不应刷新")) as refresh, patch("scripts.ac2026.finalize.subprocess.run") as promote:
                 promote.return_value.returncode = 0
                 self.assertEqual(main(), 0)
                 self.assertIn(str(path), promote.call_args.args[0])
@@ -366,7 +396,7 @@ class CaptureTests(unittest.TestCase):
 
     def test_cron_creates_log_directory_before_python_redirection(self):
         text = generate_crontab(Path("/tmp/with space"), "/tmp/python")
-        self.assertIn("mkdir -p data/ac2006/3474/logs", text)
+        self.assertIn("mkdir -p data/ac2026/3474/logs", text)
         self.assertIn("[ \"$(TZ=Asia/Shanghai date +\\%Y)\" = 2026 ]", text)
         self.assertIn("cd '/tmp/with space'", text)
 
@@ -374,14 +404,14 @@ class CaptureTests(unittest.TestCase):
         lines = generate_crontab().splitlines()
         refresh = next(line for line in lines if line.startswith("55 4 26 10 *"))
         archive = next(line for line in lines if line.startswith("0 5 26 10 *"))
-        self.assertIn("scripts.ac2006.refresh --full", refresh)
-        self.assertIn("scripts.ac2006.finalize --skip-refresh", archive)
+        self.assertIn("scripts.ac2026.refresh --full", refresh)
+        self.assertIn("scripts.ac2026.finalize --skip-refresh", archive)
         self.assertNotIn("refresh --full", archive)
 
     def test_archive_can_wait_for_an_in_progress_final_refresh(self):
         import fcntl
         with tempfile.TemporaryDirectory() as tmp:
-            with patch("scripts.ac2006.refresh.fcntl.flock") as flock:
+            with patch("scripts.ac2026.refresh.fcntl.flock") as flock:
                 with event_lock(Path(tmp), wait=True):
                     pass
                 flock.assert_called_once()

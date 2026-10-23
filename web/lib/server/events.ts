@@ -332,6 +332,8 @@ function loadCurrentFinalChampions(eventId: number): Map<string, EventChampion> 
         JOIN current_event_match_side_players msp ON msp.current_match_side_id = ms.current_match_side_id
         LEFT JOIN players p ON p.player_id = msp.player_id
         WHERE m.event_id = ?
+          -- Team rubbers inherit the final round; only the parent tie decides the team champion.
+          AND m.current_team_tie_id IS NULL
           AND m.status IN ('completed', 'walkover')
           AND m.winner_side IN ('A', 'B')
           AND (

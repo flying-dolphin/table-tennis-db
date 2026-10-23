@@ -397,13 +397,11 @@ function resolveScheduleDateForSubEvent({
   days,
   subEventCode,
   eventTimeZone,
-  lifecycleStatus,
   preferredDate,
 }: {
   days: EventDetail["scheduleDays"];
   subEventCode: string;
   eventTimeZone: string | null;
-  lifecycleStatus: string | null;
   preferredDate: string | null;
 }) {
   const filteredDays = filterScheduleDaysBySubEvent(days, eventTimeZone, subEventCode);
@@ -413,9 +411,7 @@ function resolveScheduleDateForSubEvent({
   if (preferredDate && filteredDays.some((day) => day.localDate === preferredDate)) {
     return preferredDate;
   }
-  return getDefaultScheduleDate(filteredDays, undefined, {
-    preferLatest: lifecycleStatus === "completed",
-  });
+  return getDefaultScheduleDate(filteredDays);
 }
 
 function zonedLocalDateTimeToDate(localDate: string, localTime: string, timeZone: string) {
@@ -1424,7 +1420,6 @@ function ScheduleByDateView({
   days,
   selectedSubEvent,
   eventTimeZone,
-  lifecycleStatus,
   selectedDate,
   onSelectDate,
   eventReturnHref,
@@ -1432,7 +1427,6 @@ function ScheduleByDateView({
   days: EventDetail["scheduleDays"];
   selectedSubEvent: string;
   eventTimeZone: string | null;
-  lifecycleStatus: string | null;
   selectedDate: string | null;
   onSelectDate: (date: string | null) => void;
   eventReturnHref: string;
@@ -1443,11 +1437,8 @@ function ScheduleByDateView({
   );
 
   const defaultSelectedDate = React.useMemo(
-    () =>
-      getDefaultScheduleDate(filteredDays, undefined, {
-        preferLatest: lifecycleStatus === "completed",
-      }),
-    [filteredDays, lifecycleStatus],
+    () => getDefaultScheduleDate(filteredDays),
+    [filteredDays],
   );
 
   React.useEffect(() => {
@@ -1463,7 +1454,8 @@ function ScheduleByDateView({
     }
   }, [defaultSelectedDate, filteredDays, onSelectDate, selectedDate]);
 
-  const activeDay = filteredDays.find((day) => day.localDate === selectedDate) ?? filteredDays[0];
+  const activeDay = filteredDays.find((day) => day.localDate === selectedDate)
+    ?? filteredDays[filteredDays.length - 1];
   const activeDayLocalDate = activeDay?.localDate;
   const tabListRef = React.useRef<HTMLDivElement | null>(null);
   const activeTabRef = React.useRef<HTMLButtonElement | null>(null);
@@ -3615,7 +3607,6 @@ function EventDetailContent() {
           days: data.scheduleDays,
           subEventCode: value,
           eventTimeZone: data.event.timeZone,
-          lifecycleStatus: data.event.lifecycleStatus,
           preferredDate: null,
         }),
       );
@@ -3631,7 +3622,6 @@ function EventDetailContent() {
           days: data.scheduleDays,
           subEventCode: currentSubEvent,
           eventTimeZone: data.event.timeZone,
-          lifecycleStatus: data.event.lifecycleStatus,
           preferredDate: current,
         }),
       );
@@ -3679,14 +3669,6 @@ function EventDetailContent() {
   const shouldShowTeamKnockout = currentTeamKnockoutView != null && (currentTeamKnockoutView.rounds.length > 0 || currentTeamKnockoutView.bronzeTie != null);
   const shouldShowBracket = currentBracket.length > 0;
 
-  const isEventFinished = (() => {
-    if (!data.event.endDate) return false;
-    const now = new Date();
-    const today =
-      now.getFullYear() + "-" + String(now.getMonth() + 1).padStart(2, "0") + "-" + String(now.getDate()).padStart(2, "0");
-    return data.event.endDate <= today;
-  })();
-
   const eventReturnHref = buildEventDetailHref(params.eventId, {
     subEvent: resolvedSubEvent,
     view: viewMode,
@@ -3707,7 +3689,7 @@ function EventDetailContent() {
       </div>
 
       <div className="relative z-10 -mt-3 rounded-t-[1.5rem] bg-white px-5 pt-3 shadow-[0_-12px_40px_rgba(0,0,0,0.04)] ring-1 ring-black/[0.02] pb-4">
-        {isEventFinished && (
+        {currentDetailLoaded && currentChampion && (
           <ChampionBanner champion={currentChampion} subEvent={currentSubEventMeta} rounds={currentBracket} />
         )}
         <div className="mt-2">
@@ -3725,7 +3707,6 @@ function EventDetailContent() {
                   days={data.scheduleDays}
                   selectedSubEvent={resolvedSubEvent}
                   eventTimeZone={data.event.timeZone}
-                  lifecycleStatus={data.event.lifecycleStatus}
                   selectedDate={selectedDate}
                   onSelectDate={handleSelectDate}
                   eventReturnHref={eventReturnHref}

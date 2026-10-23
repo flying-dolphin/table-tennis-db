@@ -31,8 +31,8 @@ def round_meta(key: str, draw: str | None = None) -> dict:
         order, label = int(phase[3:]) * 10, "Preliminary"
     elif phase == "58":
         stage, code, order, label = "POSITION_DRAW", "R1", 10, "Pos 5-8"
-    elif phase in ("1732", "2532", "2528", "2728", "2526"):
-        low, high = int(phase[:2]), int(phase[2:])
+    elif phase in ("916", "1732", "2532", "2528", "2728", "2526"):
+        low, high = int(phase[:-2]), int(phase[-2:])
         stage, code = "POSITION_DRAW", f"P{low}_{high}"
         order, label = 100 - (high - low), f"Pos. {low}-{high}"
     else:

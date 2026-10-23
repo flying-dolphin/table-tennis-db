@@ -401,6 +401,38 @@ test('current event champion is inferred from a completed final before sub_event
   assert.throws(() => rollback(), /rollback fixture/);
 });
 
+test('team champion comes from the completed tie, not an individual final rubber', () => {
+  const eventId = 990011;
+  db.exec('BEGIN');
+  try {
+    insertCompletedTeamTieFixture(eventId);
+    db.prepare("UPDATE events SET end_date = '2099-10-25' WHERE event_id = ?").run(eventId);
+    db.prepare("UPDATE current_event_team_ties SET stage_code = 'MAIN_DRAW', round_code = 'F' WHERE event_id = ?").run(eventId);
+    db.prepare("UPDATE current_event_matches SET round_code = 'F' WHERE event_id = ?").run(eventId);
+    // A rubber winner can have a different country from the winning team.
+    db.prepare(`UPDATE current_event_match_side_players SET player_id = 131163
+      WHERE current_match_side_id IN (
+        SELECT ms.current_match_side_id FROM current_event_match_sides ms
+        JOIN current_event_matches m ON m.current_match_id = ms.current_match_id
+        WHERE m.event_id = ? AND ms.side_no = 1
+      )`).run(eventId);
+
+    const completed = getEventDetail(eventId, 'WT', { lean: true });
+    assert.equal(completed.subEventDetails[0].champion.championCountryCode, 'JPN');
+    assert.notEqual(completed.subEventDetails[0].champion.championName, 'SUN Yingsha');
+
+    db.prepare(`UPDATE current_event_team_ties
+      SET status = 'live', winner_side = NULL, winner_team_code = NULL, match_score = '1-0'
+      WHERE event_id = ?`).run(eventId);
+    db.prepare(`UPDATE current_event_team_tie_sides SET is_winner = 0
+      WHERE current_team_tie_id = ?`).run(eventId);
+    const unfinished = getEventDetail(eventId, 'WT', { lean: true });
+    assert.equal(unfinished.subEventDetails[0].champion, null);
+  } finally {
+    db.exec('ROLLBACK');
+  }
+});
+
 test('current event does not infer a champion from a completed semifinal', () => {
   const eventId = 990003;
   const semifinalMatchId = 990003;

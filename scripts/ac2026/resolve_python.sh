@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Shared interpreter selection for the championship's deployment entry points.
-ac2006_resolve_python() {
+ac2026_resolve_python() {
     local project_dir="$1"
     local candidate resolved
     if [[ -n "${PYTHON_BIN:-}" ]]; then

@@ -15,7 +15,7 @@ from zoneinfo import ZoneInfo
 ROOT = Path(__file__).resolve().parents[2]
 EVENT_ID = 3474
 BASE_URL = "https://results.ittf.com/ittf-web-results/html/TTE3474/"
-DATA_ROOT = ROOT / "data/ac2006/3474"
+DATA_ROOT = ROOT / "data/ac2026/3474"
 DB_PATH = ROOT / "data/db/ittf.db"
 SOURCE_ZONE = "Asia/Tashkent"
 EVENT_NAME = "ITTF-ATTU Asian Championships Tashkent 2026"
@@ -42,7 +42,7 @@ ROUND_NAMES = {
     "QF": ("QuarterFinal", "四分之一决赛"), "SF": ("SemiFinal", "半决赛"), "F": ("Final", "决赛"),
     **{f"R{n}": (f"Round of {n}", f"{n}强赛") for n in (256, 128, 64, 32, 16)},
     **{f"P{low}_{high}": (f"Pos. {low}-{high}", f"第{low}至{high}名排位赛")
-       for low, high in ((17, 32), (25, 32), (25, 28), (27, 28), (25, 26))},
+       for low, high in ((9, 16), (17, 32), (25, 32), (25, 28), (27, 28), (25, 26))},
 }
 
 

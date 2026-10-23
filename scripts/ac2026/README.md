@@ -1,6 +1,6 @@
 # 2026 塔什干亚锦赛（3474）
 
-目录名按项目约定使用 `ac2006`，实际赛事是 **2026 年亚锦赛**。仅支持 event ID
+目录按赛事年份命名为 `ac2026`，对应 **2026 年亚锦赛**。仅支持 event ID
 `3474` 和 `TTE3474` 的静态 Bornan 数据，不保证适用于其他 ITTF 赛事。
 
 官方页面：<https://results.ittf.com/ittf-web-results/html/TTE3474/results.html>。
@@ -11,31 +11,31 @@
 
 ```bash
 # 第一次全量刷新，包含采集、标准化、事务导入
-python -m scripts.ac2006.refresh --full
+python -m scripts.ac2026.refresh --full
 
 # 比赛期间刷新：重新获取元数据、实时、最新两日，以及仍有未完成比赛的旧日期
-python -m scripts.ac2006.refresh
+python -m scripts.ac2026.refresh
 
 # 有代理配置但代理不可用时，显式直连
-python -m scripts.ac2006.refresh --full --no-proxy
+python -m scripts.ac2026.refresh --full --no-proxy
 
 # 只采集，或只离线解析，不写数据库
-python -m scripts.ac2006.scrape --full
-python -m scripts.ac2006.normalize
+python -m scripts.ac2026.scrape --full
+python -m scripts.ac2026.normalize
 
 # 在既有数据库上预览导入，事务最终回滚（含赛事初始化）
-python -m scripts.ac2006.refresh --offline --dry-run
+python -m scripts.ac2026.refresh --offline --dry-run
 
 # 向临时数据库导入以验收
-python -m scripts.ac2006.refresh --offline --db-path /tmp/ittf-ac2006-validation.db
+python -m scripts.ac2026.refresh --offline --db-path /tmp/ittf-ac2026-validation.db
 ```
 
 `--db-path` 必须指向已初始化的 SQLite 数据库，不会静默创建空库。
 所有入口的 `--event-id` 只接受 `3474`。`--data-root` 默认为
-`data/ac2006/3474/`，用于采集快照、离线重放和异常报告。
+`data/ac2026/3474/`，用于采集快照、离线重放和异常报告。
 
 ```text
-data/ac2006/3474/
+data/ac2026/3474/
   raw/<batch-id>/           原始 JSON 及该批次 manifest.json
   raw/latest.json           最近一次完整成功采集的清单
   normalized/<batch-id>.json
@@ -52,7 +52,7 @@ data/ac2006/3474/
 ## PDF 完整赛程
 
 `data/event_schedule/3474.json` 根据用户提供的
-`data/ac2006/3474/raw/ATTC2026-Schedule.pdf`（PDF 元数据修改日期为 2026-10-11）逐页整理，
+`data/ac2026/3474/raw/ATTC2026-Schedule.pdf`（PDF 元数据修改日期为 2026-10-11）逐页整理，
 覆盖 10 月 19–25 日，共 93 条时段，包含比赛、休息、开幕式和颁奖。
 时间采用 `Asia/Tashkent`，PDF 未注明具体场馆，因此场馆留空。
 
@@ -105,16 +105,16 @@ python scripts/runtime/import_current_event_session_schedule.py --event 3474
 
 ```bash
 # 自动备份既有数据库，再执行一次全量刷新
-bash deploy/server/update_ac2006.sh --full
+bash deploy/server/update_ac2026.sh --full
 
 # 首次刷新会自动建立赛事 3474 及关联项目；成功后再导入 PDF 完整日程
 python scripts/runtime/import_current_event_session_schedule.py --event 3474
 
 # 只预览定时配置
-python -m scripts.ac2006.generate_crontab
+python -m scripts.ac2026.generate_crontab
 
 # 显式安装自身标记区块，保留其他 cron 任务
-bash scripts/ac2006/install_crontab.sh
+bash scripts/ac2026/install_crontab.sh
 ```
 
 更新脚本和 cron 安装脚本共用解释器选择逻辑：优先使用显式设置的 `PYTHON_BIN`，
@@ -124,16 +124,16 @@ bash scripts/ac2006/install_crontab.sh
 定时运行无需依赖交互式 shell 的 pyenv 初始化。也可手动指定：
 
 ```bash
-PYTHON_BIN="$(command -v python)" bash scripts/ac2006/install_crontab.sh
+PYTHON_BIN="$(command -v python)" bash scripts/ac2026/install_crontab.sh
 ```
 
 备份保存在
-`data/db/backups/ittf-before-ac2006-*.db`，由运维按现有备份策略保留。
+`data/db/backups/ittf-before-ac2026-*.db`，由运维按现有备份策略保留。
 定时任务使用 `CRON_TZ=Asia/Shanghai`：2026 年 10 月 19–25 日每五分钟刷新，
 23:30 全量核对，26 日 04:55 执行独立的最终全量刷新，05:00 尝试本地归档。
 刷新任务负责更新 `current_event_*`；
 归档任务负责校验本地数据并写入历史表。模块使用文件锁防止刷新重叠；归档
-全程持有同一锁。cron 会创建日志目录，失败可查 `data/ac2006/3474/logs/`。
+全程持有同一锁。cron 会创建日志目录，失败可查 `data/ac2026/3474/logs/`。
 
 安装器自动生成最终刷新和 `finalize --skip-refresh` 两条任务，无需手工编辑。
 归档校验要求最近一次已导入快照来自全量核对；若 05:00 最终刷新仍未完成，
@@ -149,7 +149,7 @@ PYTHON_BIN="$(command -v python)" bash scripts/ac2006/install_crontab.sh
 ### 正常归档：cron 执行一次即可
 
 ```bash
-python -m scripts.ac2006.finalize --skip-refresh
+python -m scripts.ac2026.finalize --skip-refresh
 ```
 
 该命令检查本地数据，通过后将 `current_event_matches`、`current_event_team_ties`
@@ -162,7 +162,7 @@ python -m scripts.ac2006.finalize --skip-refresh
 ### 可选：人工预览归档
 
 ```bash
-python -m scripts.ac2006.finalize --skip-refresh --dry-run
+python -m scripts.ac2026.finalize --skip-refresh --dry-run
 ```
 
 只检查数据并预览将执行的归档，不写历史表。仅供人工检查，不是正常归档的必做步骤。
@@ -170,7 +170,7 @@ python -m scripts.ac2006.finalize --skip-refresh --dry-run
 ### 异常修复：重建本届赛事的历史记录
 
 ```bash
-python -m scripts.ac2006.finalize --skip-refresh --replace
+python -m scripts.ac2026.finalize --skip-refresh --replace
 ```
 
 仅在归档后发现历史记录有误，并已核对用于重建的 current 数据时使用。
@@ -195,7 +195,7 @@ python -m scripts.ac2006.finalize --skip-refresh --replace
 以下命令用于开发或修改抓取代码后验证实现。赛事归档成功后无需执行。
 
 ```bash
-python -m unittest discover -s scripts/ac2006/tests -v
+python -m unittest discover -s scripts/ac2026/tests -v
 ```
 
 fixture 是从官方 JSON 裁剪并去掉统计大字段的样本，包含方向冲突、退赛、双打和轮空。
