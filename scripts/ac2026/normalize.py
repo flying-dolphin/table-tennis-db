@@ -99,7 +99,7 @@ def result_fields(home: dict, away: dict, status: str, *, team: bool = False) ->
     games = [] if team else games_for(home, away)
     if "WO" in (hs.upper(), aws.upper()):
         return {"status": "walkover", "match_score": f"{hs}-{aws}", "games": [],
-                "winner_side": "B" if hs.upper() == "WO" else "A"}
+                "winner_side": None if hs.upper() == aws.upper() == "WO" else ("B" if hs.upper() == "WO" else "A")}
     if "RET" in (hs.upper(), aws.upper()):
         if (hs.upper() == "RET") == (aws.upper() == "RET"):
             raise ValueError("both sides retired")
@@ -222,7 +222,7 @@ def normalize_team(row: dict, date: str | None, rosters: dict, issues: list) -> 
     return item
 
 
-def normalize_brackets(payload: list, code: str) -> list[dict]:
+def normalize_brackets(payload: list, code: str, match_results: dict | None = None) -> list[dict]:
     rows = []
     for draw in payload:
         previous = []
@@ -239,8 +239,17 @@ def normalize_brackets(payload: list, code: str) -> list[dict]:
                 if status is None:
                     raise ValueError(f"unknown bracket status {info.get('Status')}")
                 bye = info.get("IsBye") or h.get("Org") == "BYE" or a.get("Org") == "BYE"
+                result_home, result_away = h, a
+                evidence = (match_results or {}).get(key) or {}
+                # The official bracket encodes double WO as a finished 0-0.
+                # Require the same match's terminal result before interpreting it.
+                if (status == "completed" and str(h.get("Res")) == str(a.get("Res")) == "0"
+                        and STATUS.get(evidence.get("Status")) == "completed"
+                        and all(str((evidence.get(side) or {}).get("Res", "")).upper() == "WO"
+                                for side in ("Home", "Away"))):
+                    result_home, result_away = evidence["Home"], evidence["Away"]
                 fields = ({"status": status, "match_score": None, "winner_side": "B" if h.get("Org") == "BYE" else "A"}
-                          if bye else result_fields(h, a, status, team=True))
+                          if bye else result_fields(result_home, result_away, status, team=True))
                 feeders = len(previous) == 2 * len(matches) and draw["Code"] == "MAIN"
                 rows.append({"event_id": EVENT_ID, "sub_event_type_code": code,
                              "draw_code": draw["Code"], "bracket_code": phase["Code"],
@@ -276,7 +285,6 @@ def build_snapshot(manifest: dict, payloads: dict) -> dict:
                     rosters[entry["Reg"]] = competitor_players(entry)
         brackets = payloads[f"brackets/{pk}.json"]
         if brackets:
-            snapshot["brackets"].extend(normalize_brackets(brackets, code))
             snapshot["bracket_projects"].append(code)
         groups = payloads[f"groups/{pk}.json"]
         if groups and code in ("MT", "WT"):
@@ -311,6 +319,11 @@ def build_snapshot(manifest: dict, payloads: dict) -> dict:
             by_key[row["Key"]] = (existing[0], {**existing[1], **row})
         else:
             by_key[row["Key"]] = (None, row)
+    match_results = {key: row for key, (_, row) in by_key.items()}
+    for project in champ["events"]:
+        pk = project["Key"]
+        snapshot["brackets"].extend(normalize_brackets(
+            payloads[f"brackets/{pk}.json"], PROJECTS[pk], match_results))
     bye_keys = {b["external_unit_code"] for b in snapshot["brackets"] if b["raw_source_payload"]["Info"].get("IsBye")}
     for key, (date, row) in by_key.items():
         if key in bye_keys:

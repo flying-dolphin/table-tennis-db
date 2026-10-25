@@ -42,6 +42,27 @@ def snapshot():
 
 
 class NormalizeTests(unittest.TestCase):
+    def test_double_walkover_has_no_winner(self):
+        fields = result_fields({"Res": "WO"}, {"Res": "WO"}, "completed")
+        self.assertEqual(fields["status"], "walkover")
+        self.assertEqual(fields["match_score"], "WO-WO")
+        self.assertIsNone(fields["winner_side"])
+
+    def test_bracket_zero_tie_requires_double_walkover_evidence(self):
+        phase = copy.deepcopy(samples()["brackets"][0]["Phases"][0])
+        source = phase["Matches"][0]
+        source["Info"].update(Status="OFFICIAL", IsBye=False)
+        for side in ("Home", "Away"):
+            source[side] = {"Reg": side, "Org": "TPE", "Res": "0"}
+        phase["Matches"] = [source]
+        payload = [{"Code": "MAIN", "Phases": [phase]}]
+        with self.assertRaisesRegex(ValueError, "tied score"):
+            normalize_brackets(payload, "WD")
+        evidence = {source["Info"]["Code"]: {"Status": 1, "Home": {"Res": "WO"}, "Away": {"Res": "WO"}}}
+        row = normalize_brackets(payload, "WD", evidence)[0]
+        self.assertEqual((row["status"], row["match_score"], row["winner_side"]), ("walkover", "WO-WO", None))
+        self.assertEqual(row["raw_source_payload"]["_original"], source)
+
     def test_position_draw_9_to_16(self):
         phase = copy.deepcopy(samples()["brackets"][0]["Phases"][0])
         phase["Code"] = "X.DOUBLES-----------.916-"
@@ -219,6 +240,21 @@ class NormalizeTests(unittest.TestCase):
 
 
 class ImportTests(unittest.TestCase):
+    def test_double_walkover_clears_previous_winners(self):
+        s = snapshot()
+        import_snapshot(self.conn, s)
+        match = s["matches"][0]
+        match.update(status="walkover", match_score="WO-WO", winner_side=None, winner_name=None, games=[])
+        for side in match["sides"]:
+            side["is_winner"] = False
+        bracket = s["brackets"][0]
+        bracket.update(status="walkover", match_score="WO-WO", winner_side=None)
+        import_snapshot(self.conn, s)
+        row = self.conn.execute("SELECT winner_side,winner_name FROM current_event_matches WHERE external_match_code=?", (match["external_match_code"],)).fetchone()
+        self.assertEqual(tuple(row), (None, None))
+        row = self.conn.execute("SELECT winner_side FROM current_event_brackets WHERE external_unit_code=?", (bracket["external_unit_code"],)).fetchone()
+        self.assertIsNone(row[0])
+
     def test_consolation_rounds_import_without_schema_change(self):
         s = snapshot()
         s["brackets"] = []

@@ -97,6 +97,9 @@ def upsert_unit(conn, item: dict, captured: str, *, tie_id=None, team=False) -> 
         for column, value in list(values.items()):
             if value is None:
                 values[column] = old[column]
+    double_wo = item.get("status") == "walkover" and item.get("match_score") == "WO-WO"
+    if double_wo:
+        values["winner_side"] = None
     values["last_synced_at"] = captured
     values["source_schedule_status"] = item.get("source_status")
     if team:
@@ -106,6 +109,10 @@ def upsert_unit(conn, item: dict, captured: str, *, tie_id=None, team=False) -> 
         values["winner_name"] = item.get("winner_name") or (old["winner_name"] if old else None)
         values["raw_source_payload"] = json.dumps(item.get("raw_source_payload"), ensure_ascii=False)
         values["games"] = json.dumps(item.get("games") or [], ensure_ascii=False) if item.get("games") else (old["games"] if old else "[]")
+    if double_wo:
+        values["winner_team_code" if team else "winner_name"] = None
+        if not team:
+            values["games"] = "[]"
     if old:
         conn.execute(f"UPDATE {table} SET {','.join(c+'=?' for c in values)},updated_at=datetime('now') WHERE {id_col}=?",
                      (*values.values(), old[id_col]))
@@ -206,6 +213,8 @@ def import_snapshot(conn: sqlite3.Connection, snapshot: dict, *, dry_run=False) 
                 for key, value in list(values.items()):
                     if value is None:
                         values[key] = existing[key]
+                if item["status"] == "walkover" and item["match_score"] == "WO-WO":
+                    values["winner_side"] = None
                 previous_payload = json.loads(existing["raw_source_payload"])
                 new_payload = json.loads(values["raw_source_payload"])
                 for side, number in (("Home", 1), ("Away", 2)):
