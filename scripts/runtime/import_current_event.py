@@ -14,6 +14,7 @@ from datetime import date, datetime, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
+from infer_event_time_zone import infer_time_zone, load_event, validate_time_zone
 from wtt_scrape_shared import discover_event_sub_events, resolve_standings_team_codes
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -38,6 +39,35 @@ def run_step(cmd: list[str]) -> int:
     if rc != 0:
         print(f"[current-event] ERROR step failed rc={rc} command={rendered}", flush=True)
     return rc
+
+
+def ensure_event_time_zone(db_path: Path, event_id: int) -> None:
+    """Fill missing event time zones before import without replacing existing values."""
+    with closing(sqlite3.connect(f"{db_path.resolve().as_uri()}?mode=rw", uri=True)) as conn, conn:
+        row = conn.execute("SELECT time_zone FROM events WHERE event_id = ?", (event_id,)).fetchone()
+        if row is None:
+            print(f"[current-event] WARNING time_zone event_id={event_id}: event not found", flush=True)
+            return
+        existing = (row[0] or "").strip()
+        if existing:
+            try:
+                validate_time_zone(existing)
+            except ValueError:
+                print(f"[current-event] WARNING time_zone event_id={event_id}: invalid existing value {existing!r}; correct manually", flush=True)
+            return
+        event = load_event(conn, event_id)
+        if event is None:
+            return
+        result = infer_time_zone(event)
+        if result.time_zone is None:
+            print(f"[current-event] WARNING time_zone event_id={event_id}: {result.reason}; schedule import will continue", flush=True)
+            return
+        changed = conn.execute(
+            "UPDATE events SET time_zone = ? WHERE event_id = ? AND (time_zone IS NULL OR trim(time_zone) = '')",
+            (result.time_zone, event_id),
+        ).rowcount
+        if changed:
+            print(f"[current-event] time_zone event_id={event_id}: {result.time_zone} ({result.reason})", flush=True)
 
 
 def advance_event_lifecycle(db_path: Path, event_id: int, *, now: datetime | None = None) -> None:
@@ -81,6 +111,8 @@ def main() -> int:
     parser.add_argument("--live-event-data-root", type=Path, default=DEFAULT_LIVE_EVENT_DATA_DIR)
     parser.add_argument("--event-schedule-dir", type=Path, default=DEFAULT_EVENT_SCHEDULE_DIR)
     args = parser.parse_args()
+
+    ensure_event_time_zone(args.db_path, args.event_id)
 
     py = sys.executable
     db_args = ["--db-path", str(args.db_path.resolve())]

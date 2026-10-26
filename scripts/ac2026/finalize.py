@@ -9,6 +9,51 @@ import sys
 
 from .common import EVENT_ID, PROJECT_NAMES, PROJECTS, ROOT, add_options, read_json
 from .refresh import event_lock
+from .normalize import is_double_walkover
+
+
+def unplayed_double_walkover(row) -> bool:
+    if row["status"] != "walkover" or row["match_score"] != "WO-WO":
+        return False
+    try:
+        payload = json.loads(row["raw_source_payload"] or "{}")
+        return (isinstance(payload, dict) and json.loads(row["games"] or "[]") == []
+                and is_double_walkover(payload.get("Home"), payload.get("Away")))
+    except (ValueError, TypeError):
+        return False
+
+
+def final_result_matches(conn, final: dict, actual) -> bool:
+    """Compare results after aligning competitors, since feeds can reverse sides."""
+    if not actual or actual["status"] not in ("completed", "walkover"):
+        return False
+    if final["sub_event_type_code"] in ("MT", "WT"):
+        bracket_sides = [final.get(f"side_{side}_team_code") for side in ("a", "b")]
+        actual_sides = [row[0] for row in conn.execute(
+            "SELECT team_code FROM current_event_team_tie_sides WHERE current_team_tie_id=? ORDER BY side_no",
+            (actual["current_team_tie_id"],))]
+    else:
+        from .normalize import competitor_players
+
+        def identity(comp):
+            # Doubles partners may also be listed in a different order.
+            return tuple(sorted((p["source_id"], p["name"], p["country"] or "")
+                                for p in competitor_players(comp)))
+
+        bracket_payload = final["raw_source_payload"]
+        actual_payload = json.loads(actual["raw_source_payload"] or "{}")
+        bracket_sides = [identity(bracket_payload.get(side) or {}) for side in ("Home", "Away")]
+        actual_sides = [identity(actual_payload.get(side) or {}) for side in ("Home", "Away")]
+    if len(actual_sides) != 2 or not all(bracket_sides) or bracket_sides[0] == bracket_sides[1]:
+        return False
+    if bracket_sides == actual_sides:
+        winner, score = actual["winner_side"], actual["match_score"]
+    elif bracket_sides == actual_sides[::-1]:
+        winner = {"A": "B", "B": "A"}.get(actual["winner_side"])
+        score = "-".join(reversed((actual["match_score"] or "").split("-")))
+    else:
+        return False
+    return winner == final["winner_side"] and score == final["match_score"]
 
 
 def validate_current(conn, snapshot: dict, *, allow_archived=False) -> dict:
@@ -49,9 +94,9 @@ def validate_current(conn, snapshot: dict, *, allow_archived=False) -> dict:
         raise ValueError("latest capture has unfinished finals")
     for final in snapshot_finals:
         table = "current_event_team_ties" if final["sub_event_type_code"] in ("MT", "WT") else "current_event_matches"
-        actual = conn.execute(f"SELECT status,winner_side FROM {table} WHERE event_id=? AND external_match_code=?",
+        actual = conn.execute(f"SELECT * FROM {table} WHERE event_id=? AND external_match_code=?",
                               (EVENT_ID, final["external_unit_code"])).fetchone()
-        if not actual or actual["status"] not in ("completed", "walkover") or actual["winner_side"] != final["winner_side"]:
+        if not final_result_matches(conn, final, actual):
             raise ValueError(f"{final['sub_event_type_code']}: missing or conflicting actual final result")
     if any(item["status"] in ("scheduled", "live") for item in snapshot["matches"] + snapshot["team_ties"]):
         raise ValueError("latest capture has unfinished matches/ties")
@@ -59,7 +104,9 @@ def validate_current(conn, snapshot: dict, *, allow_archived=False) -> dict:
     for table in ("current_event_matches", "current_event_team_ties"):
         counts[table] = conn.execute(f"SELECT COUNT(*) FROM {table} WHERE event_id=?", (EVENT_ID,)).fetchone()[0]
         pending = conn.execute(f"SELECT COUNT(*) FROM {table} WHERE event_id=? AND status IN ('scheduled','live')", (EVENT_ID,)).fetchone()[0]
-        invalid = conn.execute(f"SELECT COUNT(*) FROM {table} WHERE event_id=? AND status IN ('completed','walkover') AND winner_side IS NULL", (EVENT_ID,)).fetchone()[0]
+        missing_winners = conn.execute(f"SELECT * FROM {table} WHERE event_id=? AND status IN ('completed','walkover') AND winner_side IS NULL", (EVENT_ID,)).fetchall()
+        invalid = sum(not (table == "current_event_matches" and unplayed_double_walkover(row))
+                      for row in missing_winners)
         if pending or invalid:
             raise ValueError(f"{table}: {pending} pending units, {invalid} missing winners")
     if not counts["current_event_matches"]:

@@ -110,6 +110,7 @@ def upsert_unit(conn, item: dict, captured: str, *, tie_id=None, team=False) -> 
         values["raw_source_payload"] = json.dumps(item.get("raw_source_payload"), ensure_ascii=False)
         values["games"] = json.dumps(item.get("games") or [], ensure_ascii=False) if item.get("games") else (old["games"] if old else "[]")
     if double_wo:
+        # normalize only emits WO-WO after the double-walkover evidence check.
         values["winner_team_code" if team else "winner_name"] = None
         if not team:
             values["games"] = "[]"

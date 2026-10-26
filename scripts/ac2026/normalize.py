@@ -94,9 +94,25 @@ def games_for(home: dict, away: dict) -> list[dict]:
     return result
 
 
+def is_double_walkover(home: dict, away: dict) -> bool:
+    """Both sides withdrew (Win is never true) and no points were played."""
+    return all(
+        isinstance(side, dict)
+        and str(side.get("Res", "")).upper() == "WO"
+        and side.get("Win") is not True
+        and all(isinstance(game, dict) and str(game.get("Res", "")) in ("", "0")
+                for game in (side.get("Splits") or []))
+        for side in (home, away)
+    )
+
+
 def result_fields(home: dict, away: dict, status: str, *, team: bool = False) -> dict:
     hs, aws = str(home.get("Res", "")), str(away.get("Res", ""))
     games = [] if team else games_for(home, away)
+    if hs.upper() == aws.upper() == "WO":
+        if not is_double_walkover(home, away):
+            raise ValueError("double walkover has conflicting winner or played points")
+        return {"status": "walkover", "match_score": "WO-WO", "games": [], "winner_side": None}
     if "WO" in (hs.upper(), aws.upper()):
         return {"status": "walkover", "match_score": f"{hs}-{aws}", "games": [],
                 "winner_side": None if hs.upper() == aws.upper() == "WO" else ("B" if hs.upper() == "WO" else "A")}

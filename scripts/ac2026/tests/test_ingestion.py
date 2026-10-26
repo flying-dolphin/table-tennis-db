@@ -42,7 +42,7 @@ def snapshot():
 
 
 class NormalizeTests(unittest.TestCase):
-    def test_double_walkover_has_no_winner(self):
+    def test_double_walkover_without_win_flag_has_no_winner(self):
         fields = result_fields({"Res": "WO"}, {"Res": "WO"}, "completed")
         self.assertEqual(fields["status"], "walkover")
         self.assertEqual(fields["match_score"], "WO-WO")
@@ -171,6 +171,17 @@ class NormalizeTests(unittest.TestCase):
     def test_wo_is_not_normal_win(self):
         fields = result_fields({"Res": "WO"}, {"Res": "3"}, "completed")
         self.assertEqual((fields["status"], fields["winner_side"]), ("walkover", "B"))
+
+    def test_double_walkover_has_no_winner(self):
+        fields = result_fields({"Res": "WO", "Win": False}, {"Res": "WO", "Win": False}, "completed")
+        self.assertEqual(fields, {"status": "walkover", "match_score": "WO-WO", "games": [], "winner_side": None})
+
+    def test_double_walkover_rejects_conflicting_winner_or_played_games(self):
+        for home in ({"Res": "WO", "Win": True},
+                     {"Res": "WO", "Win": False, "Splits": [{"Res": "11"}]}):
+            away = {"Res": "WO", "Win": False, "Splits": [{"Res": "0"}]} if home.get("Splits") else {"Res": "WO", "Win": False}
+            with self.subTest(home=home), self.assertRaises(ValueError):
+                result_fields(home, away, "completed")
 
     def test_doubles_members_and_source_ids(self):
         match = snapshot()["matches"][0]
@@ -407,6 +418,11 @@ class ImportTests(unittest.TestCase):
                     for side in match["sides"]:
                         side["players"] = side["players"][:1]
                 s["matches"].append(match)
+            unit = tie if code in ("MT", "WT") else match
+            item["match_score"] = unit["match_score"]
+            item["raw_source_payload"] = copy.deepcopy(unit["raw_source_payload"])
+            for label, side in zip(("a", "b"), unit["sides"]):
+                item[f"side_{label}_team_code"] = side["team_code"]
             s["brackets"].append(item)
         return s
 
@@ -416,12 +432,72 @@ class ImportTests(unittest.TestCase):
         counts = validate_current(self.conn, s)
         self.assertEqual(counts["current_event_matches"], 15)
 
+    def test_double_walkover_passes_archive_without_inventing_winner(self):
+        s = self.finished_snapshot()
+        match = s["matches"][0]
+        import_snapshot(self.conn, s)
+        for side in ("Home", "Away"):
+            match["raw_source_payload"][side].update(Res="WO", Win=False, Splits=[])
+        match.update(status="walkover", match_score="WO-WO", games=[], winner_side=None, winner_name=None)
+        for side in match["sides"]:
+            side["is_winner"] = False
+        import_snapshot(self.conn, s)
+        row = self.conn.execute("SELECT winner_side,winner_name,games FROM current_event_matches WHERE external_match_code=?", (match["external_match_code"],)).fetchone()
+        self.assertEqual(tuple(row), (None, None, "[]"))
+        validate_current(self.conn, s)
+
+    def test_archive_only_exempts_proven_unplayed_double_walkover(self):
+        s = self.finished_snapshot()
+        import_snapshot(self.conn, s)
+        key = s["matches"][0]["external_match_code"]
+        payload = copy.deepcopy(s["matches"][0]["raw_source_payload"])
+        for side in ("Home", "Away"):
+            payload[side].update(Res="WO", Win=False, Splits=[])
+        variants = [
+            ("completed", "3-0", "[]", payload),
+            ("walkover", "WO-3", "[]", payload),
+            ("walkover", "WO-WO", "[]", {}),
+            ("walkover", "WO-WO", '[{"player":11,"opponent":0}]', payload),
+        ]
+        conflicting = copy.deepcopy(payload)
+        conflicting["Away"]["Win"] = True
+        variants.append(("walkover", "WO-WO", "[]", conflicting))
+        for status, score, games, raw in variants:
+            with self.subTest(status=status, score=score, games=games, raw=raw):
+                self.conn.execute("UPDATE current_event_matches SET status=?,match_score=?,games=?,winner_side=NULL,raw_source_payload=? WHERE external_match_code=?", (status, score, games, json.dumps(raw), key))
+                with self.assertRaisesRegex(ValueError, "1 missing winners"):
+                    validate_current(self.conn, s)
+
     def test_stale_database_finals_cannot_cover_missing_latest_final(self):
         s = self.finished_snapshot()
         import_snapshot(self.conn, s)
         s["brackets"].pop()
         with self.assertRaisesRegex(ValueError, "unfinished finals"):
             validate_current(self.conn, s)
+
+    def test_reversed_final_sides_are_compared_by_identity(self):
+        for code in ("MT", "WT", "MS", "MD"):
+            with self.subTest(code=code):
+                s = self.finished_snapshot()
+                final = next(b for b in s["brackets"] if b["sub_event_type_code"] == code)
+                final["side_a_team_code"], final["side_b_team_code"] = final["side_b_team_code"], final["side_a_team_code"]
+                payload = final["raw_source_payload"]
+                payload["Home"], payload["Away"] = payload["Away"], payload["Home"]
+                final["winner_side"] = "B" if final["winner_side"] == "A" else "A"
+                final["match_score"] = "-".join(reversed(final["match_score"].split("-")))
+                import_snapshot(self.conn, s)
+                validate_current(self.conn, s)
+
+    def test_final_identity_winner_and_score_conflicts_block_archive(self):
+        for field, value in (("winner_side", "A"), ("match_score", "1-3"),
+                             ("side_a_team_code", "CHN")):
+            with self.subTest(field=field):
+                s = self.finished_snapshot()
+                final = next(b for b in s["brackets"] if b["sub_event_type_code"] == "MT")
+                final[field] = value
+                import_snapshot(self.conn, s)
+                with self.assertRaisesRegex(ValueError, "MT: missing or conflicting actual final result"):
+                    validate_current(self.conn, s)
 
     def test_unpublished_resource_blocks_archiving(self):
         s = self.finished_snapshot()
@@ -461,6 +537,11 @@ class ImportTests(unittest.TestCase):
         rosters = {e["Reg"]: competitor_players(e) for e in f["entries"]}
         s["team_ties"].append(normalize_team(f[RETIRED], "2026-10-19", rosters, s["issues"]))
         s["matches"][0].update(status="walkover", match_score="WO-3", winner_side="B")
+        double_wo = copy.deepcopy(s["matches"][0]["raw_source_payload"])
+        double_wo["Key"] = "W.DOUBLES-----------.1516.000100--"
+        for side in ("Home", "Away"):
+            double_wo[side].update(Res="WO", Win=False, Splits=[{"Res": "0"}] * 3 + [{"Res": ""}] * 2)
+        s["matches"].append(normalize_match(double_wo, "2026-10-24"))
         import_snapshot(self.conn, s)
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
@@ -476,6 +557,7 @@ class ImportTests(unittest.TestCase):
                 with sqlite3.connect(path) as check:
                     count = check.execute("SELECT count(*) FROM matches WHERE event_id=3474").fetchone()[0]
                     self.assertEqual(count, 0 if flags == ["--dry-run"] else 17)
+                    self.assertEqual(check.execute("SELECT count(*) FROM matches WHERE event_id=3474 AND match_score LIKE '%WO%'").fetchone()[0], 0)
                     if flags != ["--dry-run"]:
                         retired = check.execute("SELECT count(*) FROM matches WHERE event_id=3474 AND raw_row_text LIKE '%RET%'").fetchone()[0]
                         self.assertEqual(retired, 1)

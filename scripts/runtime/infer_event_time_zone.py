@@ -42,10 +42,16 @@ CITY_TIME_ZONES = {
     "lignano": "Europe/Rome",
     "lille": "Europe/Paris",
     "linz": "Europe/Vienna",
+    "london": "Europe/London",
     "manama": "Asia/Bahrain",
+    "macau": "Asia/Macau",
+    "macao": "Asia/Macau",
+    "montpellier": "Europe/Paris",
     "montreux": "Europe/Zurich",
     "muscat": "Asia/Muscat",
     "otocec": "Europe/Ljubljana",
+    "ontario california": "America/Los_Angeles",
+    "beijing": "Asia/Shanghai",
     "san francisco": "America/Los_Angeles",
     "singapore": "Asia/Singapore",
     "tunis": "Africa/Tunis",
@@ -53,6 +59,18 @@ CITY_TIME_ZONES = {
     "varazdin": "Europe/Zagreb",
     "vila real": "Europe/Lisbon",
     "wladyslawowo": "Europe/Warsaw",
+    "yokohama": "Asia/Tokyo",
+}
+
+
+# Legacy event names/locations that do not contain a mapped city or ISO-3 code.
+LOCATION_TIME_ZONES = {
+    "united states smash": "America/Los_Angeles",
+    "united kingdom": "Europe/London",
+    "england": "Europe/London",
+    "qatar": "Asia/Qatar",
+    "china smash": "Asia/Shanghai",
+    "japan": "Asia/Tokyo",
 }
 
 
@@ -141,6 +159,10 @@ def infer_time_zone(event: EventTimezoneInput) -> TimezoneInference:
     for city, time_zone in sorted(CITY_TIME_ZONES.items(), key=lambda item: len(item[0]), reverse=True):
         if contains_phrase(search_text, city):
             return TimezoneInference(validate_time_zone(time_zone), "city", f"matched city {city!r}")
+
+    for phrase, time_zone in LOCATION_TIME_ZONES.items():
+        if contains_phrase(search_text, phrase):
+            return TimezoneInference(validate_time_zone(time_zone), "location", f"matched location {phrase!r}")
 
     country_code = normalize_lookup_text(event.event_location or event.calendar_location).upper()
     if country_code in SINGLE_COUNTRY_TIME_ZONES:

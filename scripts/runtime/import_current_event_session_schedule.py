@@ -143,7 +143,8 @@ def import_one_file(
     return {
         "event_id": event_id,
         "name": event["name"],
-        "days": len(sessions),
+        "days": len({session["local_date"] for session in sessions}),
+        "sessions": len(sessions),
         "parse_errors": parse_errors,
         "unmatched_segments": unmatched_segments,
     }
@@ -179,7 +180,7 @@ def main() -> int:
             if report.get("error"):
                 print(f"[{report['event_id']}] ERROR: {report['error']}")
             else:
-                print(f"[{report['event_id']}] {report['name']} -> {report['days']} days")
+                print(f"[{report['event_id']}] {report['name']} -> {report['sessions']} sessions, {report['days']} days")
                 if report["parse_errors"]:
                     print(f"    parse_errors: {len(report['parse_errors'])}")
                 if report["unmatched_segments"]:

@@ -4721,8 +4721,12 @@ export function getEvents(options?: {
 
   where.push(...ageGroupWhere);
 
-  // 过滤尚未开始的赛事（保留 startDate 为空的记录，因为无法判断）
-  where.push("(e.start_date IS NULL OR e.start_date <= date('now'))");
+  // 未开赛但已导入场次赛程的赛事可提前展示；日期未知的记录仍予以保留。
+  where.push(`(
+    e.start_date IS NULL
+    OR e.start_date <= date('now')
+    OR EXISTS (SELECT 1 FROM current_event_session_schedule cess WHERE cess.event_id = e.event_id)
+  )`);
 
   // 过滤没有比赛记录且没有赛程安排的赛事
   where.push(

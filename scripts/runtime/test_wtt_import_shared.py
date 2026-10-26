@@ -11,6 +11,21 @@ import wtt_import_shared as shared
 
 
 class WttImportSharedTests(unittest.TestCase):
+    def test_timezone_uses_unified_country_and_legacy_location_rules(self):
+        cases = [
+            ("WTT Champions Montpellier 2026", "FRA", "Europe/Paris"),
+            ("Generic event", "FRA", "Europe/Paris"),
+            ("Generic event", "USA", None),
+            ("WTT London", None, "Europe/London"),
+            ("WTT event", "Ontario, California", "America/Los_Angeles"),
+            ("China Smash", None, "Asia/Shanghai"),
+            ("WTT event", "Japan", "Asia/Tokyo"),
+            ("WTT Macau", None, "Asia/Macau"),
+        ]
+        for name, location, expected in cases:
+            with self.subTest(name=name, location=location):
+                self.assertEqual(expected, shared.infer_time_zone({"name": name, "location": location}))
+
     def test_infers_united_states_smash_time_zone_from_event_name(self):
         event = {
             "name": "United States Smash 2026",

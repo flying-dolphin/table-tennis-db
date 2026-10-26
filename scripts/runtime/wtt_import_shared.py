@@ -12,6 +12,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
+from infer_event_time_zone import EventTimezoneInput, infer_time_zone as infer_event_time_zone
+
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_DB_PATH = PROJECT_ROOT / "data" / "db" / "ittf.db"
 DEFAULT_SCHEDULE_DIR = PROJECT_ROOT / "data" / "event_schedule"
@@ -172,20 +174,12 @@ def infer_time_zone(event: dict) -> str | None:
     if existing:
         return existing
 
-    haystack = " ".join(str(event.get(k) or "") for k in ("name", "location", "href")).lower()
-    time_zone_keywords = [
-        (("united states smash", "ontario california", "ontario, california"), "America/Los_Angeles"),
-        (("london", "united kingdom", "england"), "Europe/London"),
-        (("doha", "qatar"), "Asia/Qatar"),
-        (("singapore",), "Asia/Singapore"),
-        (("macau", "macao"), "Asia/Macau"),
-        (("china smash", "beijing"), "Asia/Shanghai"),
-        (("yokohama", "japan"), "Asia/Tokyo"),
-    ]
-    for keywords, time_zone in time_zone_keywords:
-        if any(keyword in haystack for keyword in keywords):
-            return time_zone
-    return None
+    return infer_event_time_zone(EventTimezoneInput(
+        event_id=event.get("event_id", 0),
+        name=event.get("name") or "",
+        calendar_location=None,
+        event_location=event.get("location"),
+    )).time_zone
 
 
 def to_local_and_utc(raw_value: str | None, tz_name: str | None) -> tuple[str | None, str | None]:
