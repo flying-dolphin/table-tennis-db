@@ -46,15 +46,47 @@ class IncompleteProfileError(RuntimeError):
 
 
 def validate_scraped_profile(profile_data: dict[str, Any], expected_player_id: Any) -> None:
+    if not isinstance(profile_data, dict):
+        raise IncompleteProfileError("profile must be an object")
     actual_player_id = profile_data.get("player_id")
-    if str(actual_player_id or "") != str(expected_player_id or ""):
+    if not re.fullmatch(r"\d+", str(actual_player_id or "")) or str(actual_player_id) != str(expected_player_id):
         raise IncompleteProfileError(
             f"profile player_id mismatch: expected {expected_player_id}, got {actual_player_id}"
         )
 
-    missing_fields = [field for field in ("gender",) if not str(profile_data.get(field) or "").strip()]
+    missing_fields = [field for field in ("gender", "country_code") if not str(profile_data.get(field) or "").strip()]
+    if not str(profile_data.get("name") or profile_data.get("english_name") or "").strip():
+        missing_fields.append("name")
     if missing_fields:
         raise IncompleteProfileError(f"missing required fields: {', '.join(missing_fields)}")
+
+    career_fields = ("events", "matches", "wins", "loses", "wtt_senior_titles", "all_senior_titles")
+    year_fields = career_fields + (
+        "games", "games_won", "games_lost", "points_played", "points_won", "points_lost",
+    )
+    for block, fields in (("career_stats", career_fields), ("current_year_stats", year_fields)):
+        stats = profile_data.get(block)
+        if not isinstance(stats, dict):
+            raise IncompleteProfileError(f"missing statistics: {block}")
+        invalid = [field for field in fields if type(stats.get(field)) is not int or stats[field] < 0]
+        if invalid:
+            raise IncompleteProfileError(
+                "missing or invalid non-negative integer: " + ", ".join(f"{block}.{field}" for field in invalid)
+            )
+
+    # Source match totals can include records without a win/loss; do not require equality.
+    matches = profile_data.get("recent_matches")
+    expected_count = profile_data.get("recent_matches_count")
+    if not isinstance(matches, list) or type(expected_count) is not int or expected_count < 0:
+        raise IncompleteProfileError("missing recent_matches or source recent_matches_count; rescrape required")
+    if len(matches) != expected_count:
+        raise IncompleteProfileError(f"recent match count mismatch: source {expected_count}, parsed {len(matches)}")
+    for index, match in enumerate(matches):
+        fields = ("event", "player", "player_country", "opponent", "opponent_country", "stage", "score")
+        if not isinstance(match, dict) or any(not str(match.get(field) or "").strip() for field in fields):
+            raise IncompleteProfileError(f"incomplete recent match at index {index}")
+        if match.get("result") not in {"WON", "LOST"}:
+            raise IncompleteProfileError(f"invalid recent match result at index {index}")
 
 
 BASE_URL = "https://results.ittf.link"
@@ -296,7 +328,7 @@ def scrape_player_profile(
     resume: bool = False,
     country_rev_map: dict[str, str] | None = None,
 ) -> tuple[dict[str, Any] | None, bool]:
-    """Scrape player profile page and save to JSON (orig only) and DB."""
+    """Scrape and validate a player profile before saving its original JSON."""
     if not profile_url:
         return None, False
 
@@ -316,8 +348,9 @@ def scrape_player_profile(
     if resume and checkpoint is not None and checkpoint.is_done(ck_scrape) and orig_path.exists():
         try:
             profile_data = json.loads(orig_path.read_text(encoding="utf-8"))
+            validate_scraped_profile(profile_data, player_id)
         except Exception as exc:
-            logger.warning("Checkpoint done but orig JSON unreadable, will rescrape: %s (%s)", orig_path, exc)
+            logger.warning("Checkpoint done but orig JSON invalid, will rescrape: %s (%s)", orig_path, exc)
             profile_data = None
 
         if profile_data is None:
@@ -343,14 +376,14 @@ def scrape_player_profile(
             )
 
             page.wait_for_load_state("networkidle", timeout=10000)
-            profile_data = extract_profile_info(page, player_info, profile_url, country_rev_map)
             try:
+                profile_data = extract_profile_info(page, player_info, profile_url, country_rev_map)
                 validate_scraped_profile(profile_data, player_id)
                 break
-            except IncompleteProfileError:
+            except IncompleteProfileError as exc:
                 if attempt == 1:
                     raise
-                logger.warning("Incomplete profile for %s; retrying once", player_id)
+                logger.warning("Incomplete profile for %s (%s); retrying once", player_id, exc)
 
         assert profile_data is not None
         avatar_meta = download_player_avatar(page, player_info, avatar_dir)
@@ -465,37 +498,36 @@ def extract_profile_info(page: Any, player_info: dict[str, Any], profile_url: st
         career_cell_text = ""
         current_year_cell_text = ""
         if stats_table is not None:
-            rows = stats_table.locator("tr")
+            rows = stats_table.locator(":scope > tbody > tr, :scope > tr")
             for i in range(rows.count()):
-                cells = rows.nth(i).locator("td")
+                # Career-title dialogs contain nested tables. Only count this row's own cells.
+                cells = rows.nth(i).locator(":scope > td")
                 if cells.count() >= 5:
                     name_cell = normalize_space(cells.nth(1).inner_text())
-                    if player_info.get("player_id") and player_info["player_id"] in name_cell:
+                    row_id = re.search(r"\(#(\d+)\)", name_cell)
+                    if row_id and row_id.group(1) == str(player_info.get("player_id")):
                         profile_cell_raw_text = cells.nth(2).inner_text()
                         profile_cell_text = normalize_space(profile_cell_raw_text)
                         career_cell_text = normalize_space(cells.nth(3).inner_text())
                         current_year_cell_text = normalize_space(cells.nth(4).inner_text())
                         break
         if not profile_cell_raw_text:
-            try:
-                profile_cell = page.locator("td.vw_profiles___profile").first
-                if profile_cell.count() > 0:
-                    profile_cell_raw_text = profile_cell.inner_text()
-                    profile_cell_text = normalize_space(profile_cell_raw_text)
-            except Exception:
-                profile_cell_raw_text = ""
+            raise IncompleteProfileError(f"profile row not found for player {player_info.get('player_id')}")
 
         text_content = profile_cell_text or main_content
 
         profile_lines = [normalize_space(line) for line in profile_cell_raw_text.splitlines() if normalize_space(line)]
         if profile_lines:
             first_line = profile_lines[0]
-            if re.fullmatch(r'[A-Z ]+', first_line):
-                country_en = first_line.strip()
+            country_en = normalize_country_name(first_line)
+            if first_line.isupper() or country_en in (country_rev_map or {}):
                 profile_data["country"] = country_en
                 profile_data["country_en"] = country_en
                 if not profile_data.get("country_code") and country_rev_map:
+                    # Some profiles label the country with its code (e.g. USA).
                     code = country_rev_map.get(country_en)
+                    if not code and country_name_for_code(country_en):
+                        code = country_en
                     if code:
                         profile_data["country_code"] = code
                     else:
@@ -551,38 +583,51 @@ def extract_profile_info(page: Any, player_info: dict[str, Any], profile_url: st
             profile_data["current_year_stats"] = parse_stats_cell(current_year_cell_text, "current_year")
 
         recent_matches = []
-        recent_section_match = re.search(r'Recent Singles Matches:\s*(.+?)(?:Results in Singles Matches in WTT Events:|Results in Singles Matches in ITTF Individual Events:|$)', main_content, re.DOTALL)
+        recent_section_match = re.search(
+            r'Recent Singles Matches:\s*(.*?)(?=(?:Recent )?Results in Singles Matches in '
+            r'(?:WTT Events|ITTF Individual Events):|$)', main_content, re.DOTALL,
+        )
+        recent_count = 0
         if recent_section_match:
-            recent_text = normalize_space(recent_section_match.group(1))
-            chunks = re.findall(r'(.+?Result:\s*(?:WON|LOST))(?=\s+(?:ITTF|WTT)\b|$)', recent_text)
-            for chunk in chunks:
-                chunk = chunk.strip()
-                if ' vs ' not in chunk or 'Result:' not in chunk:
-                    continue
-                player_name = re.escape(player_info.get("english_name", "").strip())
-                m = re.search(rf'^(.*?)\s+({player_name})\s+\(([A-Z]{{3}})\)\s+vs\s+([A-Z][A-Za-z\-\s]+)\s+\(([A-Z]{{3}})\)\s+(.*?)\s*\|\s*(.*?)\s*Result:\s*(WON|LOST)$', chunk)
-                if not m:
-                    m = re.search(r'^(.*?)\s+([A-Z][A-Za-z\-\s]+)\s+\(([A-Z]{3})\)\s+vs\s+([A-Z][A-Za-z\-\s]+)\s+\(([A-Z]{3})\)\s+(.*?)\s*\|\s*(.*?)\s*Result:\s*(WON|LOST)$', chunk)
-                if not m:
-                    continue
-                recent_matches.append({
-                    "event": normalize_space(m.group(1)),
-                    "player": normalize_space(m.group(2)),
-                    "player_country": m.group(3),
-                    "opponent": normalize_space(m.group(4)),
-                    "opponent_country": m.group(5),
-                    "stage": normalize_space(m.group(6)),
-                    "score": normalize_space(m.group(7)),
-                    "result": m.group(8),
-                })
-        if recent_matches:
-            profile_data["recent_matches"] = recent_matches
+            recent_text = recent_section_match.group(1)
+            recent_count = len(re.findall(r'Result:\s*(?:WON|LOST)\b', recent_text))
+            recent_matches = parse_recent_matches(recent_text)
+        profile_data["recent_matches"] = recent_matches
+        profile_data["recent_matches_count"] = recent_count
 
+    except IncompleteProfileError:
+        raise
     except Exception as exc:
-        logger.warning("Error extracting profile details: %s", exc)
+        raise IncompleteProfileError(f"Error extracting profile details: {exc}") from exc
 
     normalize_profile_country(profile_data)
     return profile_data
+
+
+def parse_recent_matches(section_text: str) -> list[dict[str, str]]:
+    """Use match-result boundaries and page lines, independent of event/name spelling."""
+    matches = []
+    chunks = re.findall(r'(.+?Result:\s*(?:WON|LOST)\b)', section_text, re.DOTALL)
+    for chunk in chunks:
+        lines = [normalize_space(line) for line in chunk.splitlines() if normalize_space(line)]
+        for index, line in enumerate(lines):
+            names = re.fullmatch(r'(.+?)\s+\(([A-Z]{3})\)\s+vs\s+(.+?)\s+\(([A-Z]{3})\)', line)
+            if not names or index == 0:
+                continue
+            detail = re.fullmatch(r'(.+?)\s*\|\s*(.+?)\s*Result:\s*(WON|LOST)', " ".join(lines[index + 1:]))
+            if detail:
+                matches.append({
+                    "event": " ".join(lines[:index]),
+                    "player": names.group(1), "player_country": names.group(2),
+                    "opponent": names.group(3), "opponent_country": names.group(4),
+                    "stage": detail.group(1).strip(), "score": detail.group(2).strip(),
+                    "result": detail.group(3),
+                })
+            break
+    matchup_count = len(re.findall(r'\([A-Z]{3}\)\s+vs\s+', section_text))
+    if len(matches) != len(chunks) or matchup_count != len(matches) or (not chunks and re.search(r'\bvs\b', section_text)):
+        raise IncompleteProfileError(f"incomplete recent matches: source {len(chunks)}, parsed {len(matches)}")
+    return matches
 
 
 def parse_stats_cell(cell_text: str, prefix: str) -> dict[str, Any]:
@@ -655,6 +700,11 @@ def _bootstrap_profiles_checkpoint_from_orig(
             if not m:
                 continue
             player_id = m.group(1)
+            try:
+                validate_scraped_profile(json.loads(p.read_text(encoding="utf-8")), player_id)
+            except (ValueError, OSError, IncompleteProfileError) as exc:
+                logger.warning("Cannot bootstrap invalid profile %s: %s", p, exc)
+                continue
             ck_base = f"profile|{category}|player:{player_id}"
             ck_scrape = f"{ck_base}|scrape"
             if not checkpoint.is_done(ck_scrape):
@@ -662,7 +712,7 @@ def _bootstrap_profiles_checkpoint_from_orig(
 
 
 def load_player_file(player_file: str) -> list[dict[str, Any]]:
-    """Load player_id,player_name from CSV-like file."""
+    """Load player_id,player_name[,country_code] from a CSV-like file."""
     players = []
     path = Path(player_file)
     if not path.exists():
@@ -673,10 +723,13 @@ def load_player_file(player_file: str) -> list[dict[str, Any]]:
             continue
         parts = line.split(",")
         if len(parts) >= 2:
-            players.append({
+            player = {
                 "player_id": parts[0].strip(),
                 "player_name": parts[1].strip(),
-            })
+            }
+            if len(parts) >= 3 and parts[2].strip():
+                player["country_code"] = parts[2].strip().upper()
+            players.append(player)
     return players
 
 
@@ -787,6 +840,7 @@ def run(args: argparse.Namespace) -> int:
                         "player_id": pid,
                         "name": pname,
                         "english_name": pname,
+                        "country_code": pf.get("country_code", ""),
                         "profile_url": profile_url,
                     }
                     logger.info("[%d/%d] Batch scraping: %s (id=%s)", idx + 1, len(players_from_file), pname, pid)

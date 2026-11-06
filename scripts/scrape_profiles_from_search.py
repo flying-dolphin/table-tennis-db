@@ -28,7 +28,9 @@ from lib.navigation_runtime import verify_cdp_session_or_prompt
 from lib.page_ops import guarded_goto
 from lib.profile_search_ui import click_go, open_or_select_autocomplete
 from lib.country_codes import country_name_for_code, normalize_profile_country
-from scrape_profiles import download_player_avatar, extract_profile_info
+from scrape_profiles import (
+    IncompleteProfileError, download_player_avatar, extract_profile_info, validate_scraped_profile,
+)
 
 logging.basicConfig(
     level=logging.INFO,
@@ -243,6 +245,12 @@ def _load_existing_orig_keys(profile_orig_dir: Path) -> set[str]:
             continue
         if not isinstance(data, dict):
             continue
+        try:
+            filename_id = re.match(r"player_(\d+)_", p.name)
+            validate_scraped_profile(data, filename_id.group(1) if filename_id else None)
+        except IncompleteProfileError as exc:
+            logger.warning("Existing profile invalid, will rescrape %s: %s", p.name, exc)
+            continue
         english_name = normalize_player_name(_normalize_space(str(data.get("english_name") or data.get("name") or "")))
         country_code = _normalize_space(str(data.get("country_code") or "")).upper()
         if not english_name:
@@ -252,6 +260,7 @@ def _load_existing_orig_keys(profile_orig_dir: Path) -> set[str]:
 
 
 def save_player_to_players_table(db_path: Path, profile_data: dict[str, Any]) -> None:
+    validate_scraped_profile(profile_data, profile_data.get("player_id"))
     player_id_raw = profile_data.get("player_id")
     if not re.fullmatch(r"\d+", str(player_id_raw or "")):
         raise RuntimeError(f"invalid player_id for players upsert: {player_id_raw}")
@@ -522,7 +531,20 @@ def run(args: argparse.Namespace) -> int:
                         "change": 0,
                     }
 
-                    profile_data = extract_profile_info(page, player_info, profile_url)
+                    for attempt in range(2):
+                        try:
+                            profile_data = extract_profile_info(page, player_info, profile_url)
+                            validate_scraped_profile(profile_data, player_id)
+                            break
+                        except IncompleteProfileError as exc:
+                            if attempt == 1:
+                                raise
+                            logger.warning("Incomplete profile for %s (%s); retrying once", player_id, exc)
+                            guarded_goto(
+                                page, profile_url, delay_cfg, f"retry incomplete profile: {player_id}",
+                                retries=0, retry_risk_responses=False,
+                            )
+                            page.wait_for_load_state("networkidle", timeout=10000)
                     normalize_profile_country(profile_data)
                     avatar_meta = download_player_avatar(page, player_info, avatar_dir)
                     if avatar_meta:
@@ -533,9 +555,6 @@ def run(args: argparse.Namespace) -> int:
                     save_json(orig_path, profile_data)
                     save_player_to_players_table(db_path, profile_data)
                     existing_orig_keys.add(orig_key)
-
-                    if profile_data is None:
-                        raise RuntimeError("profile scrape returned empty result")
 
                     checkpoint.mark_done(
                         ck_key,

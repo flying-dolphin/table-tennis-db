@@ -1,3 +1,4 @@
+import json
 import sys
 import tempfile
 import unittest
@@ -10,7 +11,18 @@ sys.path.insert(0, str(SCRIPTS_DIR))
 
 from lib.anti_bot import DelayConfig, RiskControlTriggered
 from lib.checkpoint import CheckpointStore
-from scrape_profiles import scrape_player_profile
+from scrape_profiles import IncompleteProfileError, _bootstrap_profiles_checkpoint_from_orig, scrape_player_profile
+
+
+def complete_profile():
+    career_fields = ("events", "matches", "wins", "loses", "wtt_senior_titles", "all_senior_titles")
+    year_fields = career_fields + ("games", "games_won", "games_lost", "points_played", "points_won", "points_lost")
+    return {
+        "player_id": "136712", "name": "Test Player", "gender": "Male", "country_code": "CHN",
+        "career_stats": dict.fromkeys(career_fields, 0),
+        "current_year_stats": dict.fromkeys(year_fields, 0),
+        "recent_matches": [], "recent_matches_count": 0,
+    }
 
 
 class FakePage:
@@ -32,7 +44,7 @@ class ScrapePlayerProfileTests(unittest.TestCase):
                 patch("scrape_profiles.guarded_goto"),
                 patch(
                     "scrape_profiles.extract_profile_info",
-                    return_value={"player_id": "136712", "name": "Test Player", "gender": "Male"},
+                    return_value=complete_profile(),
                 ),
                 patch("scrape_profiles.download_player_avatar", return_value=None),
                 patch("scrape_profiles.save_json") as save_profile_json,
@@ -64,7 +76,7 @@ class ScrapePlayerProfileTests(unittest.TestCase):
                 "profile_url": "https://results.ittf.link/profile?id=136712",
             }
             incomplete = {"player_id": "136712", "name": "Test Player"}
-            complete = {"player_id": "136712", "name": "Test Player", "gender": "Male"}
+            complete = complete_profile()
 
             with (
                 patch("scrape_profiles.guarded_goto") as goto,
@@ -124,6 +136,85 @@ class ScrapePlayerProfileTests(unittest.TestCase):
         key = "profile|women|player:136712|scrape"
         self.assertNotIn(key, checkpoint.data["completed"])
         self.assertIn("missing required fields: gender", checkpoint.data["failed"][key]["reason"])
+
+    def test_invalid_statistics_preserve_previous_file_and_clear_done_checkpoint(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp = Path(tmpdir)
+            orig = tmp / "player_136712_Test_Player.json"
+            previous = json.dumps(complete_profile())
+            orig.write_text(previous)
+            checkpoint = CheckpointStore(tmp / "checkpoint.json")
+            key = "profile|women|player:136712|scrape"
+            checkpoint.mark_done(key)
+            invalid = complete_profile()
+            invalid["current_year_stats"] = {}
+            with (
+                patch("scrape_profiles.guarded_goto") as goto,
+                patch("scrape_profiles.extract_profile_info", return_value=invalid),
+                patch("scrape_profiles.download_player_avatar") as avatar,
+            ):
+                result = scrape_player_profile(
+                    FakePage(), "https://example.test/profile", complete_profile(), DelayConfig(0, 0, 0, 0),
+                    tmp, tmp / "avatars", checkpoint=checkpoint, category="women",
+                )
+            self.assertEqual(result, (None, False))
+            self.assertEqual(goto.call_count, 2)
+            self.assertEqual(orig.read_text(), previous)
+            avatar.assert_not_called()
+            self.assertFalse(checkpoint.is_done(key))
+            self.assertIn("current_year_stats.events", checkpoint.data["failed"][key]["reason"])
+
+    def test_resume_revalidates_cached_profile_before_skipping(self):
+        for valid_cache in (False, True):
+            with self.subTest(valid_cache=valid_cache), tempfile.TemporaryDirectory() as tmpdir:
+                tmp = Path(tmpdir)
+                cached = complete_profile()
+                if not valid_cache:
+                    cached["current_year_stats"] = {}
+                (tmp / "player_136712_Test_Player.json").write_text(json.dumps(cached))
+                checkpoint = CheckpointStore(tmp / "checkpoint.json")
+                checkpoint.mark_done("profile|women|player:136712|scrape")
+                with (
+                    patch("scrape_profiles.guarded_goto") as goto,
+                    patch("scrape_profiles.extract_profile_info", return_value=complete_profile()),
+                    patch("scrape_profiles.download_player_avatar", return_value=None),
+                    patch("scrape_profiles.save_json") as save,
+                ):
+                    result = scrape_player_profile(
+                        FakePage(), "https://example.test/profile", complete_profile(), DelayConfig(0, 0, 0, 0),
+                        tmp, tmp / "avatars", checkpoint=checkpoint, category="women", resume=True,
+                    )
+                self.assertEqual(result, (complete_profile(), not valid_cache))
+                self.assertEqual(goto.call_count, 0 if valid_cache else 1)
+                self.assertEqual(save.call_count, 0 if valid_cache else 1)
+
+    def test_extraction_failure_is_retried_before_saving(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            with (
+                patch("scrape_profiles.guarded_goto") as goto,
+                patch("scrape_profiles.extract_profile_info", side_effect=[
+                    IncompleteProfileError("incomplete recent matches"), complete_profile(),
+                ]),
+                patch("scrape_profiles.download_player_avatar", return_value=None),
+                patch("scrape_profiles.save_json") as save,
+            ):
+                result = scrape_player_profile(
+                    FakePage(), "https://example.test/profile", complete_profile(), DelayConfig(0, 0, 0, 0),
+                    Path(tmpdir), Path(tmpdir) / "avatars",
+                )
+            self.assertEqual(result, (complete_profile(), True))
+            self.assertEqual(goto.call_count, 2)
+            save.assert_called_once()
+
+    def test_bootstrap_ignores_incomplete_profile_files(self):
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp = Path(tmpdir)
+            invalid = complete_profile()
+            invalid["career_stats"] = {}
+            (tmp / "player_136712_Test_Player.json").write_text(json.dumps(invalid))
+            checkpoint = CheckpointStore(tmp / "checkpoint.json")
+            _bootstrap_profiles_checkpoint_from_orig(checkpoint, "women", tmp)
+            self.assertFalse(checkpoint.has_any_completed())
 
     def test_profile_429_is_not_swallowed_or_retried(self):
         with tempfile.TemporaryDirectory() as tmpdir:
