@@ -82,6 +82,28 @@ class ParseResultsRankingHtmlTests(unittest.TestCase):
             ],
         )
 
+    def test_extracts_player_id_from_pid_profile_url(self):
+        html = """
+        <table id="list_58_com_fabrik_58">
+          <tbody>
+            <tr class="fabrik_row">
+              <td></td><td>901</td><td></td><td>1</td>
+              <td><a href="/../index.php/player-profile?pid=220550">SEAL Manisha</a></td>
+              <td><img title="IND" src="/images/stories/flags/IND.png"></td>
+              <td>INDIA</td><td>ASIA</td>
+            </tr>
+          </tbody>
+        </table>
+        """
+
+        rows = parse_results_ranking_html(html, top_n=10)
+
+        self.assertEqual(rows[0]["player_id"], "220550")
+        self.assertEqual(
+            rows[0]["profile_url"],
+            "https://results.ittf.link/index.php/player-profile?pid=220550",
+        )
+
     def test_falls_back_to_embedded_fabrik_json_when_dom_rows_are_missing(self):
         html = """
         <script>

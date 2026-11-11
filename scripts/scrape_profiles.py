@@ -22,6 +22,8 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
+from bs4 import BeautifulSoup
+
 from lib.anti_bot import DelayConfig, RiskControlTriggered, human_sleep
 from lib.browser_runtime import close_browser_page, open_browser_page
 from lib.capture import save_json, sanitize_filename
@@ -175,10 +177,11 @@ def translate_continent(code: str, fallback: str = "") -> str:
 def extract_player_id_from_href(href: str | None) -> str | None:
     if not href:
         return None
-    match = re.search(r"player_id_raw=(\d+)", href)
+    match = re.search(r"(?:vw_profiles___)?player_id_raw=(\d+)", href)
     if match:
         return match.group(1)
-    return None
+    match = re.search(r"[?&]pid=(\d+)(?:[&#]|$)", href)
+    return match.group(1) if match else None
 
 
 def parse_ranking_rows(page: Any, top_n: int, translator: DictTranslator | None = None, translate_names: bool = True) -> list[dict[str, Any]]:
@@ -463,7 +466,7 @@ def download_player_avatar(page: Any, player_info: dict[str, Any], avatar_dir: P
 
 
 def extract_profile_info(page: Any, player_info: dict[str, Any], profile_url: str, country_rev_map: dict[str, str] | None = None) -> dict[str, Any]:
-    """Extract detailed profile information from player page."""
+    """Extract detailed profile information from the redesigned player page."""
     profile_data: dict[str, Any] = {
         "player_id": player_info.get("player_id"),
         "name": player_info.get("name", ""),
@@ -478,122 +481,34 @@ def extract_profile_info(page: Any, player_info: dict[str, Any], profile_url: st
     }
 
     try:
-        main = page.locator("main") if page.locator("main").count() > 0 else page.locator("body")
-        main_content = main.inner_text()
+        soup = BeautifulSoup(page.content(), "html.parser")
+        hero = soup.select_one("section.pp-hero")
+        if hero is None:
+            raise IncompleteProfileError(f"profile hero not found for player {player_info.get('player_id')}")
 
-        stats_table = None
-        tables = page.locator("main table") if page.locator("main table").count() > 0 else page.locator("table")
-        for i in range(tables.count()):
-            table = tables.nth(i)
-            try:
-                headers = [normalize_space(x) for x in table.locator("tr").first.locator("th,td").all_inner_texts()]
-                if "Profile" in headers and "Career *" in headers and "Current Year *" in headers:
-                    stats_table = table
-                    break
-            except Exception:
-                continue
+        extract_profile_hero(hero, profile_data)
 
-        profile_cell_raw_text = ""
-        profile_cell_text = ""
-        career_cell_text = ""
-        current_year_cell_text = ""
-        if stats_table is not None:
-            rows = stats_table.locator(":scope > tbody > tr, :scope > tr")
-            for i in range(rows.count()):
-                # Career-title dialogs contain nested tables. Only count this row's own cells.
-                cells = rows.nth(i).locator(":scope > td")
-                if cells.count() >= 5:
-                    name_cell = normalize_space(cells.nth(1).inner_text())
-                    row_id = re.search(r"\(#(\d+)\)", name_cell)
-                    if row_id and row_id.group(1) == str(player_info.get("player_id")):
-                        profile_cell_raw_text = cells.nth(2).inner_text()
-                        profile_cell_text = normalize_space(profile_cell_raw_text)
-                        career_cell_text = normalize_space(cells.nth(3).inner_text())
-                        current_year_cell_text = normalize_space(cells.nth(4).inner_text())
-                        break
-        if not profile_cell_raw_text:
-            raise IncompleteProfileError(f"profile row not found for player {player_info.get('player_id')}")
-
-        text_content = profile_cell_text or main_content
-
-        profile_lines = [normalize_space(line) for line in profile_cell_raw_text.splitlines() if normalize_space(line)]
-        if profile_lines:
-            first_line = profile_lines[0]
-            country_en = normalize_country_name(first_line)
-            if first_line.isupper() or country_en in (country_rev_map or {}):
-                profile_data["country"] = country_en
-                profile_data["country_en"] = country_en
-                if not profile_data.get("country_code") and country_rev_map:
-                    # Some profiles label the country with its code (e.g. USA).
-                    code = country_rev_map.get(country_en)
-                    if not code and country_name_for_code(country_en):
-                        code = country_en
-                    if code:
-                        profile_data["country_code"] = code
-                    else:
-                        player_id = profile_data.get("player_id", "?")
-                        name = profile_data.get("name", "?")
-                        raise ValueError(
-                            f"Country '{country_en}' for player {player_id} ({name}) "
-                            f"not found in country_code_map"
-                        )
-
-        gender_match = re.search(r'Gender:\s*(\w+)', text_content, re.IGNORECASE)
-        if gender_match:
-            profile_data["gender"] = gender_match.group(1).capitalize()
-
-        birth_year_match = re.search(r'Birth Year:\s*(\d{4})', text_content, re.IGNORECASE)
-        if birth_year_match:
-            profile_data["birth_year"] = int(birth_year_match.group(1))
-
-        age_match = re.search(r'Age:\s*(\d+)', text_content, re.IGNORECASE)
-        if age_match:
-            profile_data["age"] = int(age_match.group(1))
-
-        style_match = re.search(r'Style:\s*(.+?)(?=\s*Ranking:|$)', text_content, re.IGNORECASE)
-        if style_match:
-            style_str = style_match.group(1).strip()
-            profile_data["style"] = style_str
-            if "right" in style_str.lower():
-                profile_data["playing_hand"] = "Right"
-            elif "left" in style_str.lower():
-                profile_data["playing_hand"] = "Left"
-            grip_match = re.search(r'\(([^)]+)\)', style_str)
-            if grip_match:
-                profile_data["grip"] = grip_match.group(1).strip()
-
-        ranking_match = re.search(r'Ranking:\s*(\d+)\s*\|\s*Week:\s*(.+?)(?=\s*Career Best\*\*:|$)', text_content)
-        if ranking_match:
-            profile_data["current_rank"] = int(ranking_match.group(1))
-            profile_data["ranking_week"] = ranking_match.group(2).strip()
-
-        career_best_match = re.search(r'Career Best\*\*:\s*(\d+)\s*\|\s*(Week|Month):\s*([^\n]+)', text_content)
-        if career_best_match:
-            profile_data["career_best_rank"] = int(career_best_match.group(1))
-            normalized = normalize_career_best_month(
-                career_best_match.group(3).strip(),
-                career_best_match.group(2).strip(),
+        expected_id = str(player_info.get("player_id") or "")
+        actual_id = str(profile_data.get("player_id") or "")
+        if expected_id and actual_id and actual_id != expected_id:
+            raise IncompleteProfileError(
+                f"profile player_id mismatch: expected {expected_id}, got {actual_id}"
             )
-            if normalized.month:
-                profile_data["career_best_month"] = normalized.month
 
-        if career_cell_text:
-            profile_data["career_stats"] = parse_stats_cell(career_cell_text, "career")
-        if current_year_cell_text:
-            profile_data["current_year_stats"] = parse_stats_cell(current_year_cell_text, "current_year")
+        extract_profile_ranking(hero, profile_data)
 
-        recent_matches = []
-        recent_section_match = re.search(
-            r'Recent Singles Matches:\s*(.*?)(?=(?:Recent )?Results in Singles Matches in '
-            r'(?:WTT Events|ITTF Individual Events):|$)', main_content, re.DOTALL,
-        )
-        recent_count = 0
-        if recent_section_match:
-            recent_text = recent_section_match.group(1)
-            recent_count = len(re.findall(r'Result:\s*(?:WON|LOST)\b', recent_text))
-            recent_matches = parse_recent_matches(recent_text)
+        career_section = soup.select_one('section.pp-kpis[data-pp-scope="career"]')
+        if career_section is None:
+            raise IncompleteProfileError(f"career statistics not found for player {player_info.get('player_id')}")
+        profile_data["career_stats"] = parse_kpi_stats(career_section)
+
+        current_year = str(datetime.now().year)
+        year_section = soup.select_one(f'section.pp-kpis[data-pp-scope="{current_year}"]')
+        profile_data["current_year_stats"] = parse_kpi_stats(year_section)
+
+        recent_matches = parse_recent_matches(soup, profile_data)
         profile_data["recent_matches"] = recent_matches
-        profile_data["recent_matches_count"] = recent_count
+        profile_data["recent_matches_count"] = len(recent_matches)
 
     except IncompleteProfileError:
         raise
@@ -604,81 +519,208 @@ def extract_profile_info(page: Any, player_info: dict[str, Any], profile_url: st
     return profile_data
 
 
-def parse_recent_matches(section_text: str) -> list[dict[str, str]]:
-    """Use match-result boundaries and page lines, independent of event/name spelling."""
-    matches = []
-    chunks = re.findall(r'(.+?Result:\s*(?:WON|LOST)\b)', section_text, re.DOTALL)
-    for chunk in chunks:
-        lines = [normalize_space(line) for line in chunk.splitlines() if normalize_space(line)]
-        for index, line in enumerate(lines):
-            names = re.fullmatch(r'(.+?)\s+\(([A-Z]{3})\)\s+vs\s+(.+?)\s+\(([A-Z]{3})\)', line)
-            if not names or index == 0:
-                continue
-            detail = re.fullmatch(r'(.+?)\s*\|\s*(.+?)\s*Result:\s*(WON|LOST)', " ".join(lines[index + 1:]))
-            if detail:
-                matches.append({
-                    "event": " ".join(lines[:index]),
-                    "player": names.group(1), "player_country": names.group(2),
-                    "opponent": names.group(3), "opponent_country": names.group(4),
-                    "stage": detail.group(1).strip(), "score": detail.group(2).strip(),
-                    "result": detail.group(3),
-                })
-            break
-    matchup_count = len(re.findall(r'\([A-Z]{3}\)\s+vs\s+', section_text))
-    if len(matches) != len(chunks) or matchup_count != len(matches) or (not chunks and re.search(r'\bvs\b', section_text)):
-        raise IncompleteProfileError(f"incomplete recent matches: source {len(chunks)}, parsed {len(matches)}")
-    return matches
+def _node_text(node: Any) -> str:
+    return normalize_space(node.get_text(" ", strip=True)) if node else ""
 
 
-def parse_stats_cell(cell_text: str, prefix: str) -> dict[str, Any]:
-    """Parse stats from a table cell text."""
-    stats = {}
-    
-    # Events
-    events_match = re.search(r'Events:\s*(\d+)', cell_text)
-    if events_match:
-        stats["events"] = int(events_match.group(1))
-    
-    # Matches
-    matches_match = re.search(r'Matches:\s*(\d+)', cell_text)
-    if matches_match:
-        stats["matches"] = int(matches_match.group(1))
-    
-    # Wins
-    wins_match = re.search(r'Wins:\s*(\d+)', cell_text)
-    if wins_match:
-        stats["wins"] = int(wins_match.group(1))
-    
-    # Loses
-    loses_match = re.search(r'Loses:\s*(\d+)', cell_text)
-    if loses_match:
-        stats["loses"] = int(loses_match.group(1))
-    
-    # Games
-    games_match = re.search(r'Games:\s*(\d+)\s*\(W:\s*(\d+)\s*,\s*L:\s*(\d+)\)', cell_text)
-    if games_match:
-        stats["games"] = int(games_match.group(1))
-        stats["games_won"] = int(games_match.group(2))
-        stats["games_lost"] = int(games_match.group(3))
-    
-    # Points
-    points_match = re.search(r'Points:\s*(\d+)\s*\(W:\s*(\d+)\s*,\s*L:\s*(\d+)\)', cell_text)
-    if points_match:
-        stats["points_played"] = int(points_match.group(1))
-        stats["points_won"] = int(points_match.group(2))
-        stats["points_lost"] = int(points_match.group(3))
-    
-    # WTT Senior Titles
-    wtt_match = re.search(r'WTT Senior Titles:\s*(\d+)', cell_text)
-    if wtt_match:
-        stats["wtt_senior_titles"] = int(wtt_match.group(1))
-    
-    # All Senior Titles
-    all_titles_match = re.search(r'All Senior Titles:\s*(\d+)', cell_text)
-    if all_titles_match:
-        stats["all_senior_titles"] = int(all_titles_match.group(1))
-    
+def extract_profile_hero(hero: Any, profile_data: dict[str, Any]) -> None:
+    name_node = hero.select_one(".pp-name")
+    if name_node:
+        name = re.sub(r"\s*\(ITTF ID #\d+\)\s*$", "", _node_text(name_node))
+        if name:
+            profile_data["name"] = name
+            profile_data["english_name"] = name
+
+    id_node = hero.select_one(".pp-name__id")
+    if id_node:
+        id_match = re.search(r"#(\d+)", _node_text(id_node))
+        if id_match:
+            profile_data["player_id"] = id_match.group(1)
+
+    for meta in hero.select(".pp-id > .pp-meta"):
+        spans = meta.find_all("span", recursive=False)
+        if meta.select_one(".pp-flag"):
+            country_text = _node_text(spans[0]) if spans else _node_text(meta)
+            flag_img = meta.select_one(".pp-flag img")
+            country_code = ""
+            if flag_img:
+                flag_path = urllib.parse.urlparse(flag_img.get("src") or "").path
+                flag_stem = Path(flag_path).stem.upper()
+                if re.fullmatch(r"[A-Z]{3}", flag_stem):
+                    country_code = flag_stem
+            if not country_code:
+                code_match = re.match(r"([A-Z]{3})\b", country_text)
+                if code_match:
+                    country_code = code_match.group(1)
+            if country_code:
+                profile_data["country_code"] = country_code
+            if " - " in country_text:
+                country_en = normalize_country_name(country_text.split(" - ", 1)[1])
+                if country_en:
+                    profile_data["country"] = country_en
+                    profile_data["country_en"] = country_en
+
+            for span in spans:
+                text = _node_text(span)
+                if text.lower() in {"female", "male"}:
+                    profile_data["gender"] = text.capitalize()
+                born_match = re.match(r"Born\s+(\d{4})\s*\((\d+)\)", text, re.IGNORECASE)
+                if born_match:
+                    profile_data["birth_year"] = int(born_match.group(1))
+                    profile_data["age"] = int(born_match.group(2))
+            continue
+
+        style_text = _node_text(spans[0]) if spans else _node_text(meta)
+        if style_text and not profile_data.get("style"):
+            style, playing_hand, grip = parse_style(style_text)
+            if style:
+                profile_data["style"] = style
+            if playing_hand:
+                profile_data["playing_hand"] = playing_hand
+            if grip:
+                profile_data["grip"] = grip
+
+
+def extract_profile_ranking(hero: Any, profile_data: dict[str, Any]) -> None:
+    for block in hero.select(".pp-rank > div"):
+        label = _node_text(block.select_one("small")).lower()
+        value = _node_text(block.select_one("b"))
+        note = _node_text(block.select_one("em"))
+        rank_match = re.search(r"#?\s*(\d+)", value)
+        if "world ranking" in label:
+            if rank_match:
+                profile_data["current_rank"] = int(rank_match.group(1))
+            if note:
+                profile_data["ranking_week"] = note
+        elif "career best" in label:
+            if rank_match:
+                profile_data["career_best_rank"] = int(rank_match.group(1))
+            if note:
+                granularity = "month" if note.lower().startswith("month") else "week"
+                normalized = normalize_career_best_month(note, granularity)
+                if normalized.month:
+                    profile_data["career_best_month"] = normalized.month
+
+
+def parse_style(style_text: str) -> tuple[str, str, str]:
+    text = normalize_space(style_text)
+    if not text:
+        return "", "", ""
+
+    match = re.match(
+        r"^(right|left)-hand\s+(attack|defen[cs]e|allround)\s*[-\u2013\u2014]\s*(shakehand|penhold)",
+        text,
+        re.IGNORECASE,
+    )
+    if match:
+        hand = match.group(1).capitalize()
+        kind = match.group(2).lower()
+        if kind.startswith("defen"):
+            kind = "defence"
+        grip_key = match.group(3).lower()
+        grip = "ShakeHand" if grip_key == "shakehand" else "Penhold"
+        return f"{match.group(1).lower()}-hand {kind} ({grip_key})", hand, grip
+
+    hand = "Right" if "right" in text.lower() else ("Left" if "left" in text.lower() else "")
+    grip_match = re.search(r"\((shakehand|penhold)\)", text, re.IGNORECASE) or re.search(
+        r"[-\u2013\u2014]\s*(shakehand|penhold)", text, re.IGNORECASE
+    )
+    grip = ""
+    if grip_match:
+        grip = "ShakeHand" if grip_match.group(1).lower() == "shakehand" else "Penhold"
+    return text, hand, grip
+
+
+def parse_kpi_stats(section: Any) -> dict[str, int]:
+    stats: dict[str, int] = {
+        "events": 0,
+        "matches": 0,
+        "wins": 0,
+        "loses": 0,
+        "wtt_senior_titles": 0,
+        "all_senior_titles": 0,
+        "games": 0,
+        "games_won": 0,
+        "games_lost": 0,
+        "points_played": 0,
+        "points_won": 0,
+        "points_lost": 0,
+    }
+    if section is None:
+        return stats
+
+    for kpi in section.select(".pp-kpi"):
+        label = _node_text(kpi.select_one("small")).lower()
+        value_text = _node_text(kpi.select_one("b"))
+        detail = _node_text(kpi.select_one("span"))
+        if label == "matches":
+            stats["matches"] = parse_int(value_text)
+            pair = re.search(r"([\d,]+)\s*won\s*-\s*([\d,]+)\s*lost", detail, re.IGNORECASE)
+            if pair:
+                stats["wins"] = parse_int(pair.group(1))
+                stats["loses"] = parse_int(pair.group(2))
+        elif label == "events":
+            stats["events"] = parse_int(value_text)
+        elif label == "titles":
+            stats["all_senior_titles"] = parse_int(value_text)
+            pair = re.search(r"WTT\s*([\d,]+)\s*-\s*all\s*([\d,]+)", detail, re.IGNORECASE)
+            if pair:
+                stats["wtt_senior_titles"] = parse_int(pair.group(1))
+                stats["all_senior_titles"] = parse_int(pair.group(2))
+        elif label in {"games won", "points won"}:
+            pair = re.search(r"([\d,]+)\s*won\s*-\s*([\d,]+)\s*lost", detail, re.IGNORECASE)
+            if pair:
+                prefix = "games" if label.startswith("games") else "points"
+                won = parse_int(pair.group(1))
+                lost = parse_int(pair.group(2))
+                stats[f"{prefix}_won"] = won
+                stats[f"{prefix}_lost"] = lost
+                stats["games" if prefix == "games" else "points_played"] = won + lost
+
     return stats
+
+
+def parse_recent_matches(soup: Any, profile_data: dict[str, Any]) -> list[dict[str, str]]:
+    matches: list[dict[str, str]] = []
+    for match in soup.select(".pp-mgrid .pp-m"):
+        event_node = match.select_one(".ev")
+        event_text = _node_text(event_node)
+        event_link = event_node.select_one("a") if event_node else None
+        event = _node_text(event_link) if event_link else event_text
+        stage = _node_text(event_node.select_one(".pp-tag")) if event_node else ""
+        if not stage and " - " in event_text:
+            event, stage = event_text.rsplit(" - ", 1)
+
+        opponent_node = match.select_one(".op")
+        badge = _node_text(opponent_node.select_one(".pp-mbadge")) if opponent_node else ""
+        opponent = _node_text(opponent_node.select_one("a")) if opponent_node else ""
+        opponent_country = _node_text(opponent_node.select_one(".pp-flag")) if opponent_node else ""
+        if not opponent_country and opponent_node is not None:
+            flag_img = opponent_node.select_one(".pp-flag img")
+            if flag_img:
+                flag_stem = Path(urllib.parse.urlparse(flag_img.get("src") or "").path).stem.upper()
+                if re.fullmatch(r"[A-Z]{3}", flag_stem):
+                    opponent_country = flag_stem
+
+        result = ""
+        if badge.upper().startswith("W"):
+            result = "WON"
+        elif badge.upper().startswith("L"):
+            result = "LOST"
+
+        matches.append(
+            {
+                "event": event.strip(),
+                "player": str(profile_data.get("name") or ""),
+                "player_country": str(profile_data.get("country_code") or ""),
+                "opponent": opponent,
+                "opponent_country": opponent_country,
+                "stage": stage.strip(),
+                "score": _node_text(match.select_one(".sc")),
+                "result": result,
+            }
+        )
+    return matches
 
 
 def _bootstrap_profiles_checkpoint_from_orig(

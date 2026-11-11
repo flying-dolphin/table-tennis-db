@@ -98,7 +98,11 @@ def absolutize_results_url(href: str | None) -> str | None:
 def extract_player_id_from_href(href: str | None) -> str | None:
     if not href:
         return None
-    match = re.search(r"(?:vw_profiles___)?player_id_raw=(\d+)", html.unescape(href))
+    decoded = html.unescape(href)
+    match = re.search(r"(?:vw_profiles___)?player_id_raw=(\d+)", decoded)
+    if match:
+        return match.group(1)
+    match = re.search(r"[?&]pid=(\d+)(?:[&#]|$)", decoded)
     return match.group(1) if match else None
 
 

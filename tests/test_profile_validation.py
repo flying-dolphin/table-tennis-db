@@ -1,12 +1,11 @@
-import copy
 import json
 import sys
 import tempfile
 import unittest
+from datetime import datetime
 from pathlib import Path
 from unittest.mock import patch
 
-from bs4 import BeautifulSoup
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 
@@ -27,57 +26,70 @@ def complete_profile():
     }
 
 
-class HtmlLocator:
-    """Small DOM adapter: exercises production extraction using nested HTML."""
+class FakeHtmlPage:
+    def __init__(self, html: str):
+        self._html = html
 
-    def __init__(self, nodes):
-        self.nodes = nodes
-
-    def locator(self, selector):
-        return HtmlLocator([child for node in self.nodes for child in node.select(selector)])
-
-    def count(self):
-        return len(self.nodes)
-
-    def nth(self, index):
-        return HtmlLocator([self.nodes[index]])
-
-    @property
-    def first(self):
-        return self.nth(0)
-
-    def inner_text(self):
-        node = copy.deepcopy(self.nodes[0])
-        for hidden in node.select("dialog:not([open]), style, script"):
-            hidden.decompose()
-        return node.get_text("\n", strip=True)
-
-    def all_inner_texts(self):
-        return [self.nth(i).inner_text() for i in range(self.count())]
+    def content(self) -> str:
+        return self._html
 
 
-def profile_page(recent="", year_text=None):
-    data = complete_profile()
-    career = "\n".join(f"{label}: {data['career_stats'][key]}" for label, key in [
-        ("Events", "events"), ("Matches", "matches"), ("Wins", "wins"), ("Loses", "loses"),
-        ("WTT Senior Titles", "wtt_senior_titles"), ("All Senior Titles", "all_senior_titles")])
-    year_text = year_text if year_text is not None else """Events: 11
-Matches: 54
-Wins: 45
-Loses: 9
-Games: 222 (W: 165 , L: 57)
-Points: 4017 (W: 2333 , L: 1684)
-WTT Senior Titles: 2
-All Senior Titles: 3"""
-    soup = BeautifulSoup(f"""<body><main><table>
-<thead><tr><th></th><th>Name</th><th>Profile</th><th>Career *</th><th>Current Year *</th></tr></thead>
-<tbody><tr><td></td><td>WANG Manyu (#121411)</td>
-<td>CHINA\nGender: Female\nAge: 27</td><td>{career}
-<dialog><table><tr><td>China Smash 2026</td><td>WS</td></tr></table></dialog></td>
-<td>{year_text}</td></tr></tbody></table>
-<div>Recent Singles Matches:\n{recent}\nRecent Results in Singles Matches in WTT Events:</div>
-</main></body>""", "html.parser")
-    return HtmlLocator([soup])
+def default_recent_matches_html() -> str:
+    return """
+    <section class="pp-card" aria-label="Recent singles matches">
+      <div class="pp-mgrid">
+        <div class="pp-m">
+          <div class="ev"><a href="#">WTT Champions Montpellier 2026</a> - R16</div>
+          <div class="op"><span class="pp-mbadge pp-mbadge--l">L</span><a href="#">CHEN Yi</a>
+            <span class="pp-flag"><img src="/images/stories/flags/CHN.png" alt="">CHN</span></div>
+          <div class="sc"><b>0-3</b> - 11-13 8-11 9-11</div>
+        </div>
+      </div>
+    </section>
+    """
+
+
+def profile_page(*, year: str | None = None, recent_matches: str | None = None) -> FakeHtmlPage:
+    year = year or str(datetime.now().year)
+    recent_matches = recent_matches if recent_matches is not None else default_recent_matches_html()
+    return FakeHtmlPage(f"""
+    <section class="pp-hero" aria-label="Player">
+      <div class="pp-photo">
+        <img src="https://wttsimfiles.blob.core.windows.net/wtt-media/photos/400px/121411_Headshot_R_WANG_Manyu.png">
+      </div>
+      <div class="pp-id">
+        <h1 class="pp-name">WANG <span>Manyu</span> <small class="pp-name__id">(ITTF ID #121411)</small></h1>
+        <div class="pp-meta">
+          <span><span class="pp-flag"><img src="/images/stories/flags/CHN.png" alt="">CHN</span> - CHINA</span>
+          <span>Female</span>
+          <span>Born 1999 (27)</span>
+        </div>
+        <div class="pp-meta"><span>Right-hand attack - shakehand</span></div>
+      </div>
+      <div class="pp-rank">
+        <div><small>World ranking</small><b>#1</b><em>Week 46/2026 - 9 Nov 2026</em></div>
+        <div><small>Career best</small><b>#1</b><em>Week 38/2026, held 8 weeks</em></div>
+        <div><small>History</small><a href="#">Ranking History</a></div>
+      </div>
+    </section>
+    <section class="pp-kpis" data-pp-scope="career" aria-label="Key numbers - career">
+      <div class="pp-kpi"><small>Matches</small><b>516</b><span>444 won - 72 lost</span></div>
+      <div class="pp-kpi"><small>Win rate</small><b>86.0%</b></div>
+      <div class="pp-kpi"><small>Events</small><b>106</b></div>
+      <div class="pp-kpi"><small>Titles</small><button type="button"><b>20</b></button><span>WTT 10 - all 20</span></div>
+      <div class="pp-kpi"><small>Games won</small><b>74.2%</b><span>1,627 won - 567 lost</span></div>
+      <div class="pp-kpi"><small>Points won</small><b>57.5%</b><span>22,577 won - 16,667 lost</span></div>
+    </section>
+    <section class="pp-kpis" data-pp-scope="{year}" hidden aria-label="Key numbers - {year}">
+      <div class="pp-kpi"><small>Matches</small><b>54</b><span>45 won - 9 lost</span></div>
+      <div class="pp-kpi"><small>Win rate</small><b>83.3%</b></div>
+      <div class="pp-kpi"><small>Events</small><b>11</b></div>
+      <div class="pp-kpi"><small>Titles</small><button type="button"><b>3</b></button><span>WTT 2 - all 3</span></div>
+      <div class="pp-kpi"><small>Games won</small><b>74.3%</b><span>165 won - 57 lost</span></div>
+      <div class="pp-kpi"><small>Points won</small><b>58.1%</b><span>2,333 won - 1,684 lost</span></div>
+    </section>
+    {recent_matches}
+    """)
 
 
 class ProfileValidationTests(unittest.TestCase):
@@ -124,72 +136,118 @@ class ProfileValidationTests(unittest.TestCase):
         with self.assertRaisesRegex(IncompleteProfileError, "recent_matches_count"):
             validate_scraped_profile(data, "121411")
 
-    def test_nested_title_table_does_not_replace_year_statistics(self):
+
+class RedesignedProfileExtractionTests(unittest.TestCase):
+    def test_extracts_career_and_current_year_kpis(self):
         data = extract_profile_info(profile_page(), complete_profile(), "https://example.test/profile")
+
         self.assertEqual(data["current_year_stats"]["events"], 11)
         self.assertEqual(data["current_year_stats"]["matches"], 54)
+        self.assertEqual(data["current_year_stats"]["games"], 222)
+        self.assertEqual(data["current_year_stats"]["points_played"], 4017)
+        self.assertEqual(data["current_year_stats"]["wtt_senior_titles"], 2)
+        self.assertEqual(data["career_stats"]["matches"], 516)
+        self.assertEqual(data["career_stats"]["wins"], 444)
+        self.assertEqual(data["career_stats"]["loses"], 72)
+        self.assertEqual(data["career_stats"]["all_senior_titles"], 20)
         validate_scraped_profile(data, "121411")
 
-    def test_recent_matches_accept_all_event_prefixes_and_unicode_names(self):
-        recent = "\n\n".join(
-            f"{event}\n{left} (CHN) vs {right} (GER)\nWS Main Draw - R32 | 3 - 1\nResult: WON"
-            for event, left, right in [
-                ("WTT Champions Montpellier 2026", "WANG Manyu", "MITTELHAM Nina"),
-                ("China Smash 2026", "WANG Manyu", "O’BRIEN Zoë"),
-                ("Asian Games Aichi-Nagoya 2026", "DIAZ Adriana", "WANG Manyu"),
-                ("Europe Smash - Sweden 2026", "WANG Manyu", "HAN Ying"),
-            ]
+    def test_extracts_hero_country_style_and_ranking(self):
+        data = extract_profile_info(profile_page(), complete_profile(), "https://example.test/profile")
+
+        self.assertEqual(data["player_id"], "121411")
+        self.assertEqual(data["name"], "WANG Manyu")
+        self.assertEqual(data["country_code"], "CHN")
+        self.assertEqual(data["country"], "CHINA")
+        self.assertEqual(data["gender"], "Female")
+        self.assertEqual(data["birth_year"], 1999)
+        self.assertEqual(data["age"], 27)
+        self.assertEqual(data["style"], "right-hand attack (shakehand)")
+        self.assertEqual(data["playing_hand"], "Right")
+        self.assertEqual(data["grip"], "ShakeHand")
+        self.assertEqual(data["current_rank"], 1)
+        self.assertEqual(data["ranking_week"], "Week 46/2026 - 9 Nov 2026")
+        self.assertEqual(data["career_best_rank"], 1)
+        self.assertEqual(data["career_best_month"], "2026-09")
+
+    def test_recent_matches_accept_unicode_names_and_event_hyphens(self):
+        recent = """
+        <section class="pp-card"><div class="pp-mgrid">
+          <div class="pp-m">
+            <div class="ev"><a>Europe Smash - Sweden 2026</a> - R32</div>
+            <div class="op"><span class="pp-mbadge pp-mbadge--w">W</span><a>O’BRIEN Zoë</a>
+              <span class="pp-flag"><img src="/images/stories/flags/GER.png" alt="">GER</span></div>
+            <div class="sc"><b>3-1</b> - 11-9 8-11 11-7 11-5</div>
+          </div>
+          <div class="pp-m">
+            <div class="ev"><a>China Smash 2026</a> - F</div>
+            <div class="op"><span class="pp-mbadge pp-mbadge--l">L</span><a>HAN Ying</a>
+              <span class="pp-flag"><img src="/images/stories/flags/GER.png" alt="">GER</span></div>
+            <div class="sc"><b>2-4</b> - 11-9 8-11 11-7 11-5 9-11 7-11</div>
+          </div>
+        </div></section>
+        """
+        data = extract_profile_info(
+            profile_page(recent_matches=recent), complete_profile(), "https://example.test/profile"
         )
-        data = extract_profile_info(profile_page(recent), complete_profile(), "https://example.test/profile")
-        self.assertEqual(len(data.get("recent_matches", [])), 4)
+
+        self.assertEqual(data["recent_matches_count"], 2)
+        self.assertEqual(data["recent_matches"][0]["event"], "Europe Smash - Sweden 2026")
+        self.assertEqual(data["recent_matches"][0]["stage"], "R32")
+        self.assertEqual(data["recent_matches"][0]["opponent"], "O’BRIEN Zoë")
+        self.assertEqual(data["recent_matches"][0]["result"], "WON")
         self.assertEqual(data["recent_matches"][1]["event"], "China Smash 2026")
-        self.assertEqual(data["recent_matches"][1]["opponent"], "O’BRIEN Zoë")
-        self.assertEqual(data["recent_matches"][2]["player"], "DIAZ Adriana")
-        self.assertEqual(data["recent_matches_count"], 4)
+        self.assertEqual(data["recent_matches"][1]["stage"], "F")
+        self.assertEqual(data["recent_matches"][1]["result"], "LOST")
+        validate_scraped_profile(data, "121411")
 
-    def test_unparsed_recent_match_is_rejected(self):
-        recent = "China Smash 2026\nchanged match format\nResult: LOST"
-        with self.assertRaisesRegex(IncompleteProfileError, "recent"):
-            data = extract_profile_info(profile_page(recent), complete_profile(), "https://example.test/profile")
-            validate_scraped_profile(data, "121411")
+    def test_team_tag_is_used_as_recent_match_stage(self):
+        recent = """
+        <section class="pp-card"><div class="pp-mgrid">
+          <div class="pp-m">
+            <div class="ev"><a>Asian Games Aichi-Nagoya 2026</a> <span class="pp-tag">Team</span></div>
+            <div class="op"><span class="pp-mbadge pp-mbadge--l">L</span><a>HARIMOTO Tomokazu</a>
+              <span class="pp-flag"><img src="/images/stories/flags/JPN.png" alt="">JPN</span></div>
+            <div class="sc"><b>0-3</b> - 7-11 4-11 9-11</div>
+          </div>
+        </div></section>
+        """
+        data = extract_profile_info(
+            profile_page(recent_matches=recent), complete_profile(), "https://example.test/profile"
+        )
 
-    def test_truncated_recent_match_is_rejected_even_after_a_complete_match(self):
-        recent = """China Smash 2026
-WANG Manyu (CHN) vs HAN Ying (GER)
-WS Main Draw - R32 | 3 - 1
-Result: WON
-Asian Games 2026
-WANG Manyu (CHN) vs HAN Ying (GER)
-WS Main Draw - R16 | 3 - 0"""
-        with self.assertRaisesRegex(IncompleteProfileError, "recent"):
-            extract_profile_info(profile_page(recent), complete_profile(), "https://example.test/profile")
+        self.assertEqual(data["recent_matches"][0]["event"], "Asian Games Aichi-Nagoya 2026")
+        self.assertEqual(data["recent_matches"][0]["stage"], "Team")
+        validate_scraped_profile(data, "121411")
 
-    def test_player_id_substring_cannot_match_wrong_source_player(self):
+    def test_current_year_section_is_optional(self):
+        html = profile_page().content()
+        year = str(datetime.now().year)
+        html = html.replace(f'<section class="pp-kpis" data-pp-scope="{year}"', '<section class="pp-kpis" data-pp-scope="1999"')
+        data = extract_profile_info(FakeHtmlPage(html), complete_profile(), "https://example.test/profile")
+
+        self.assertEqual(data["current_year_stats"]["matches"], 0)
+        self.assertEqual(data["current_year_stats"]["points_played"], 0)
+        validate_scraped_profile(data, "121411")
+
+    def test_player_id_mismatch_is_rejected(self):
         player = complete_profile()
         player["player_id"] = "12141"
-        with self.assertRaisesRegex(IncompleteProfileError, "profile row not found"):
+        with self.assertRaisesRegex(IncompleteProfileError, "player_id mismatch"):
             extract_profile_info(profile_page(), player, "https://example.test/profile")
 
-    def test_country_label_can_be_an_existing_country_code(self):
-        page = profile_page()
-        label = page.nodes[0].find(string=lambda text: text and text.startswith("CHINA\n"))
-        label.replace_with(str(label).replace("CHINA", "USA", 1))
-        player = complete_profile()
-        player.pop("country_code")
-        data = extract_profile_info(page, player, "https://example.test/profile", {"UNITED STATES": "USA"})
-        self.assertEqual(data["country_code"], "USA")
-        self.assertEqual(data["country"], "UNITED STATES")
-        validate_scraped_profile(data, "121411")
+    def test_missing_career_kpis_are_rejected(self):
+        html = profile_page().content().replace('data-pp-scope="career"', 'data-pp-scope="career-old"')
+        with self.assertRaisesRegex(IncompleteProfileError, "career statistics not found"):
+            extract_profile_info(FakeHtmlPage(html), complete_profile(), "https://example.test/profile")
 
-    def test_country_label_can_contain_punctuation(self):
-        page = profile_page()
-        label = page.nodes[0].find(string=lambda text: text and text.startswith("CHINA\n"))
-        label.replace_with(str(label).replace("CHINA", "HONG KONG, CHINA", 1))
-        player = complete_profile()
-        player.pop("country_code")
-        data = extract_profile_info(page, player, "https://example.test/profile", {"HONG KONG, CHINA": "HKG"})
-        self.assertEqual(data["country_code"], "HKG")
-        validate_scraped_profile(data, "121411")
+    def test_missing_hero_is_rejected(self):
+        with self.assertRaisesRegex(IncompleteProfileError, "profile hero not found"):
+            extract_profile_info(
+                FakeHtmlPage("<html><body><main>login</main></body></html>"),
+                complete_profile(),
+                "https://example.test/profile",
+            )
 
     def test_batch_file_preserves_known_country_and_accepts_legacy_two_columns(self):
         with tempfile.TemporaryDirectory() as tmpdir:
@@ -199,17 +257,6 @@ WS Main Draw - R16 | 3 - 0"""
                 {"player_id": "131231", "player_name": "ABRAAMIAN Elizabet", "country_code": "RUS"},
                 {"player_id": "121411", "player_name": "WANG Manyu"},
             ])
-
-    def test_known_country_is_retained_when_reverse_map_lacks_it(self):
-        page = profile_page()
-        label = page.nodes[0].find(string=lambda text: text and text.startswith("CHINA\n"))
-        label.replace_with(str(label).replace("CHINA", "RUSSIA", 1))
-        player = complete_profile()
-        player["country_code"] = "RUS"
-        data = extract_profile_info(page, player, "https://example.test/profile", {"CHINA": "CHN"})
-        self.assertEqual(data["country_code"], "RUS")
-        self.assertEqual(data["country"], "RUSSIA")
-        validate_scraped_profile(data, "121411")
 
     def test_search_scraper_does_not_skip_invalid_existing_profile(self):
         with tempfile.TemporaryDirectory() as tmpdir:
