@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 """
-Scrape all matches from ITTF event match-list URLs.
+Scrape played matches from ITTF event pages.
+
+New event-stats URLs (e.g. /index.php/event-stats?tid=3257) expose
+the complete match data in #hp-es-mdata. Read that JSON directly and
+verify its count against the event's Matches played total. The site
+excludes walkovers and matches not played to the end from this data.
 
 Input URLs look like:
 https://results.ittf.link/index.php/event-matches/list/68?resetfilters=1&abc=460&vw_matches___tournament_id_raw[value][]=460
@@ -84,14 +89,14 @@ def load_event_urls(urls_file: Path | None, urls: list[str]) -> list[str]:
 
 def event_id_from_url(url: str) -> str:
     query = parse_qs(urlparse(url).query)
-    values = query.get("abc") or []
+    values = query.get("tid") or query.get("abc") or []
     if values and values[0].strip():
         return values[0].strip()
 
     match = re.search(r"[?&]abc=(\d+)", url)
     if match:
         return match.group(1)
-    raise ValueError(f"Cannot parse abc event id from url: {url}")
+    raise ValueError(f"Cannot parse tid/abc event id from url: {url}")
 
 
 def event_name_from_match(match: dict[str, Any]) -> str:
@@ -108,6 +113,7 @@ def event_name_from_match(match: dict[str, Any]) -> str:
 
 def get_event_title_from_page(page: Any) -> str:
     selectors = [
+        "#hp-es-title",
         ".notranslate .span-class",
         "span.span-class",
     ]
@@ -122,6 +128,112 @@ def get_event_title_from_page(page: Any) -> str:
         except Exception:
             continue
     return ""
+
+
+def parse_event_stats_data(data: dict[str, Any], event_name: str) -> list[dict[str, Any]]:
+    """Map the site's match JSON to event_match.v1 without swapping sides.
+
+    The popup displays the winner first, but the JSON's ra/rx and game
+    scores are relative to a/x. Use the JSON order for all output fields.
+    """
+    if not isinstance(data, dict) or not isinstance(data.get("m"), dict) or not isinstance(data.get("n"), dict):
+        raise ValueError("Event stats must contain match (m) and player name (n) maps")
+    names = data["n"]
+    matches = []
+    for match_id, raw in data["m"].items():
+        try:
+            def side(key: str) -> list[str]:
+                entries = raw[key]
+                if not isinstance(entries, list) or not entries:
+                    raise ValueError(f"Missing participants on side {key}")
+                players = []
+                for player_id, association in entries:
+                    name = str(names.get(str(player_id)) or "").strip()
+                    if not name or not association:
+                        raise ValueError(f"Missing player name/association: {player_id}")
+                    players.append(f"{name} ({association})")
+                return players
+
+            side_a, side_b = side("a"), side("x")
+            score_a, score_b = raw["ra"], raw["rx"]
+            if any(type(score) is not int or score < 0 for score in (score_a, score_b)):
+                raise ValueError("Invalid match score")
+            if raw["w"] not in ("A", "X"):
+                raise ValueError("Unknown winner side")
+            if score_a == score_b or (score_a > score_b) != (raw["w"] == "A"):
+                raise ValueError("Winner does not agree with match score")
+            games = raw["g"]
+            if not isinstance(games, list) or not games:
+                raise ValueError("Missing game scores")
+            for a, b in games:
+                if any(type(score) is not int or score < 0 for score in (a, b)):
+                    raise ValueError("Invalid game score")
+            if (sum(a > b for a, b in games), sum(b > a for a, b in games)) != (score_a, score_b):
+                raise ValueError("Game scores do not agree with match score")
+            sub_event = raw["e"]
+            round_text = raw["r"]
+            match_score = f"{score_a}-{score_b}"
+            winner = " / ".join(side_a if raw["w"] == "A" else side_b)
+            games_display = [f"{a}:{b}" for a, b in games]
+            # Preserve the legacy column layout for consumers of raw_row_text.
+            raw_columns = ["", event_name, side_a[0], side_a[1] if len(side_a) > 1 else "",
+                           side_b[0], side_b[1] if len(side_b) > 1 else "",
+                           sub_event, "", round_text, match_score, ", ".join(games_display), winner]
+            matches.append({
+                "source_row_id": str(match_id),
+                "event": event_name,
+                "sub_event": sub_event,
+                "stage": "",
+                "round": round_text,
+                "match_score": match_score,
+                "games": [{"player": a, "opponent": b} for a, b in games],
+                "games_display": games_display,
+                "winner": winner,
+                "all_players_in_row": side_a + side_b,
+                "side_a": side_a,
+                "side_b": side_b,
+                "result_for_player": "unknown",
+                "perspective": "unknown",
+                "raw_row_text": " | ".join(raw_columns),
+            })
+        except (KeyError, TypeError, ValueError) as exc:
+            raise ValueError(f"Invalid event stats match {match_id}: {exc}") from exc
+    return matches
+
+
+def scrape_event_stats_page(page: Any, url: str, event_id: str, output_dir: Path) -> dict[str, Any]:
+    page.locator("#hp-es-mdata").wait_for(state="attached", timeout=20000)
+    event_name = get_event_title_from_page(page)
+    if not event_name:
+        raise RuntimeError(f"Cannot determine event title, event_id={event_id}, url={page.url}")
+    data = json.loads(page.locator("#hp-es-mdata").first.text_content() or "")
+    matches = parse_event_stats_data(data, event_name)
+    total_text = page.locator("button[data-hp-es-apop]").first.inner_text().strip()
+    normalized_total = re.sub(r"[,\s\u00a0]", "", total_text)
+    if not normalized_total.isdigit():
+        raise RuntimeError(f"Cannot read Matches played total: {total_text!r}")
+    total_records = int(normalized_total)
+    payload = {
+        "schema_version": "event_match.v1",
+        "scraped_at": utc_now_iso(),
+        "source_url": url,
+        "final_url": page.url,
+        "event_id": event_id,
+        "event": event_name,
+        "page_total_records": total_records,
+        "matches": matches,
+    }
+    if len(matches) != total_records:
+        error = f"Record count mismatch for event_id={event_id}: actual={len(matches)} page_total={total_records}"
+        payload.update(validation_error=error, actual_records=len(matches))
+        save_json(Path(DEFAULT_PROBLEMATIC_OUTPUT_DIR) / output_filename(event_name, event_id), payload)
+        raise RuntimeError(error)
+    output_file = output_dir / output_filename(event_name, event_id)
+    save_json(output_file, payload)
+    payload["output_file"] = str(output_file)
+    logger.info("Record count verified for %s: %s matches", event_id, len(matches))
+    logger.info("Saved event matches: %s", output_file)
+    return payload
 
 
 def output_filename(event_name: str, event_id: str) -> str:
@@ -465,6 +577,9 @@ def scrape_event_url(
     event_id = event_id_from_url(url)
     guarded_goto(page, url, delay_cfg, f"open event matches {event_id}", sleep_first=False)
 
+    if "/event-stats" in urlparse(page.url).path or page.locator("#hp-es-mdata").count() > 0:
+        return scrape_event_stats_page(page, url, event_id, output_dir)
+
     try:
         first_page, total_pages, total_records = read_initial_page_info(page, event_id)
     except RiskControlTriggered:
@@ -756,7 +871,7 @@ def run(args: argparse.Namespace) -> int:
 
 
 def build_parser() -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Scrape ITTF event match-list URLs")
+    parser = argparse.ArgumentParser(description="Scrape ITTF event-stats or legacy event match-list URLs")
     parser.add_argument("--urls-file", default=None, help="Text file with one event match URL per line")
     parser.add_argument("--url", action="append", default=[], help="Event match URL. Can be repeated.")
     parser.add_argument("--output-dir", default=DEFAULT_OUTPUT_DIR)
