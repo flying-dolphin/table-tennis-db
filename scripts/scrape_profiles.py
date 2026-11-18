@@ -87,8 +87,12 @@ def validate_scraped_profile(profile_data: dict[str, Any], expected_player_id: A
         fields = ("event", "player", "player_country", "opponent", "opponent_country", "stage", "score")
         if not isinstance(match, dict) or any(not str(match.get(field) or "").strip() for field in fields):
             raise IncompleteProfileError(f"incomplete recent match at index {index}")
-        if match.get("result") not in {"WON", "LOST"}:
-            raise IncompleteProfileError(f"invalid recent match result at index {index}")
+        if match.get("result") not in {"WON", "LOST", "INJ", "RET"}:
+            raise IncompleteProfileError(
+                f"invalid recent match result at index {index}: "
+                f"event={match.get('event')!r}, opponent={match.get('opponent')!r}, "
+                f"score={match.get('score')!r}, result={match.get('result')!r}"
+            )
 
 
 BASE_URL = "https://results.ittf.link"
@@ -682,7 +686,7 @@ def parse_kpi_stats(section: Any) -> dict[str, int]:
 
 def parse_recent_matches(soup: Any, profile_data: dict[str, Any]) -> list[dict[str, str]]:
     matches: list[dict[str, str]] = []
-    for match in soup.select(".pp-mgrid .pp-m"):
+    for index, match in enumerate(soup.select(".pp-mgrid .pp-m")):
         event_node = match.select_one(".ev")
         event_text = _node_text(event_node)
         event_link = event_node.select_one("a") if event_node else None
@@ -692,7 +696,8 @@ def parse_recent_matches(soup: Any, profile_data: dict[str, Any]) -> list[dict[s
             event, stage = event_text.rsplit(" - ", 1)
 
         opponent_node = match.select_one(".op")
-        badge = _node_text(opponent_node.select_one(".pp-mbadge")) if opponent_node else ""
+        badge_node = opponent_node.select_one(".pp-mbadge") if opponent_node else None
+        badge = _node_text(badge_node)
         opponent = _node_text(opponent_node.select_one("a")) if opponent_node else ""
         opponent_country = _node_text(opponent_node.select_one(".pp-flag")) if opponent_node else ""
         if not opponent_country and opponent_node is not None:
@@ -707,6 +712,18 @@ def parse_recent_matches(soup: Any, profile_data: dict[str, Any]) -> list[dict[s
             result = "WON"
         elif badge.upper().startswith("L"):
             result = "LOST"
+        elif badge.upper() in {"INJ", "RET"}:
+            # Preserve the source's not-counted injury or retirement status.
+            result = badge.upper()
+
+        score = _node_text(match.select_one(".sc"))
+        if not result:
+            logger.warning(
+                "Unrecognized recent match result: player_id=%s index=%d "
+                "event=%r opponent=%r score=%r badge_text=%r badge_html=%r",
+                profile_data.get("player_id"), index, event.strip(), opponent, score,
+                badge, str(badge_node) if badge_node is not None else None,
+            )
 
         matches.append(
             {
@@ -716,7 +733,7 @@ def parse_recent_matches(soup: Any, profile_data: dict[str, Any]) -> list[dict[s
                 "opponent": opponent,
                 "opponent_country": opponent_country,
                 "stage": stage.strip(),
-                "score": _node_text(match.select_one(".sc")),
+                "score": score,
                 "result": result,
             }
         )

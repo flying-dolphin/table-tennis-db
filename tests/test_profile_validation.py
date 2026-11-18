@@ -138,6 +138,86 @@ class ProfileValidationTests(unittest.TestCase):
 
 
 class RedesignedProfileExtractionTests(unittest.TestCase):
+    def test_retired_not_counted_is_preserved_and_passes_validation(self):
+        for score in (
+            "3-0 - 11-2 11-0 11-0 - opponent retired, not counted",
+            "0-3 - 2-11 0-11 0-11 - retired, not counted",
+        ):
+            with self.subTest(score=score):
+                recent = default_recent_matches_html() * 2 + f"""
+                <div class="pp-mgrid"><div class="pp-m">
+                  <div class="ev"><a>ITTF-ATTU Asian Championships Tashkent 2026</a> - Group</div>
+                  <div class="op"><span class="pp-mbadge pp-mbadge--irm" title="Retired - not counted">RET</span>
+                    <a>ALSHAMMARI Menwah</a><span class="pp-flag">KSA</span></div>
+                  <div class="sc">{score}</div>
+                </div></div>
+                """
+                with self.assertNoLogs("ittf_profile_scraper", level="WARNING"):
+                    data = extract_profile_info(
+                        profile_page(recent_matches=recent), complete_profile(), "https://example.test/profile"
+                    )
+                self.assertEqual(data["recent_matches_count"], 3)
+                self.assertEqual(data["recent_matches"][2]["result"], "RET")
+                self.assertEqual(data["recent_matches"][2]["score"], score)
+                self.assertEqual(data["recent_matches"][2]["opponent"], "ALSHAMMARI Menwah")
+                self.assertEqual(data["career_stats"]["wins"], 444)
+                self.assertEqual(data["career_stats"]["loses"], 72)
+                self.assertEqual(data["current_year_stats"]["wins"], 45)
+                self.assertEqual(data["current_year_stats"]["loses"], 9)
+                validate_scraped_profile(data, "121411")
+
+    def test_injury_not_counted_is_preserved_and_passes_validation(self):
+        score = "0-3 - 0-11 0-11 0-11 - injured, not counted"
+        recent = default_recent_matches_html() * 5 + """
+        <div class="pp-mgrid"><div class="pp-m">
+          <div class="ev"><a>WTT Contender Panagyurishte 2026 Presented by ASAREL</a> - QR1</div>
+          <div class="op"><span class="pp-mbadge pp-mbadge--irm" title="Injury - not counted">INJ</span>
+            <a>TAILAKOVA Mariia</a><span class="pp-flag">RUS</span></div>
+          <div class="sc">0-3 - 0-11 0-11 0-11 - injured, not counted</div>
+        </div></div>
+        """
+        with self.assertNoLogs("ittf_profile_scraper", level="WARNING"):
+            data = extract_profile_info(
+                profile_page(recent_matches=recent), complete_profile(), "https://example.test/profile"
+            )
+        self.assertEqual(data["recent_matches_count"], 6)
+        self.assertEqual(data["recent_matches"][5]["result"], "INJ")
+        self.assertEqual(data["recent_matches"][5]["score"], score)
+        self.assertEqual(data["recent_matches"][5]["opponent"], "TAILAKOVA Mariia")
+        self.assertEqual(data["career_stats"]["loses"], 72)
+        self.assertEqual(data["current_year_stats"]["loses"], 9)
+        validate_scraped_profile(data, "121411")
+
+    def test_unrecognized_recent_result_logs_source_match_details(self):
+        for marker in ('<span class="pp-mbadge pp-mbadge--n">N/A</span>', ''):
+            with self.subTest(marker=marker):
+                valid_match = default_recent_matches_html()
+                # Keep the failing record at index 5, as in the reported failure.
+                recent = valid_match * 5 + valid_match.replace(
+                    '<span class="pp-mbadge pp-mbadge--l">L</span>', marker
+                )
+                with self.assertLogs("ittf_profile_scraper", level="WARNING") as logs:
+                    data = extract_profile_info(
+                        profile_page(recent_matches=recent), complete_profile(), "https://example.test/profile"
+                    )
+                self.assertEqual(len(logs.output), 1)
+                message = logs.output[0]
+                for detail in (
+                    "player_id=121411", "index=5", "WTT Champions Montpellier 2026",
+                    "CHEN Yi", "0-3", "badge_text=", "badge_html=",
+                ):
+                    self.assertIn(detail, message)
+                if marker:
+                    self.assertIn("N/A", message)
+                    self.assertIn("pp-mbadge--n", message)
+                else:
+                    self.assertIn("badge_html=None", message)
+                self.assertEqual(data["recent_matches"][5]["result"], "")
+                with self.assertRaisesRegex(IncompleteProfileError, "invalid recent match result at index 5") as raised:
+                    validate_scraped_profile(data, "121411")
+                for detail in ("CHEN Yi", "0-3", "WTT Champions Montpellier 2026"):
+                    self.assertIn(detail, str(raised.exception))
+
     def test_extracts_career_and_current_year_kpis(self):
         data = extract_profile_info(profile_page(), complete_profile(), "https://example.test/profile")
 
