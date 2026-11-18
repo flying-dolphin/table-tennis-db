@@ -1,4 +1,4 @@
-import { readdirSync } from 'node:fs';
+import { existsSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 
 const RANKING_THUMBS_DIR = path.join(process.cwd(), 'public', 'images', 'avatar-thumbs');
@@ -18,5 +18,13 @@ function loadManifest(): Set<string> {
 
 export function filterAvatarFile(name: string | null | undefined): string | null {
   if (!name) return null;
-  return loadManifest().has(name) ? name : null;
+  const files = loadManifest();
+  if (files.has(name)) return name;
+
+  if (path.basename(name) !== name || !name.endsWith('.png')) return null;
+  const thumbnail = path.join(RANKING_THUMBS_DIR, name.replace(/\.png$/, '.webp'));
+  if (!existsSync(thumbnail)) return null;
+
+  files.add(name);
+  return name;
 }
