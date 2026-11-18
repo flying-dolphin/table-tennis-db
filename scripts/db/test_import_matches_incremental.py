@@ -264,6 +264,35 @@ class ImportMatchesIncrementalTests(unittest.TestCase):
             country_history_path=self.country_history_path,
         )
 
+    def test_event_stats_import_restores_only_explicit_main_draw_rounds(self) -> None:
+        path = self.matches_dir / "Alpha_Event_1001.json"
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        match = payload["matches"][0]
+        payload["matches"] = [
+            {**match, "source_row_id": "1", "stage": "", "round": "Final"},
+            {**match, "source_row_id": "2", "stage": "", "round": "Preliminary"},
+            {**match, "source_row_id": "3", "stage": "", "round": "Qualification - Group 1"},
+            {**match, "source_row_id": "4", "stage": "Qualification", "round": "Round of 32"},
+            {**match, "stage": "", "round": "Semifinal"},
+        ]
+        path.write_text(json.dumps(payload), encoding="utf-8")
+
+        self.assertEqual(5, self.import_event(1001)["inserted"])
+        with sqlite3.connect(self.db_path) as conn:
+            stages = conn.execute(
+                "SELECT round, stage, stage_zh FROM matches WHERE event_id = 1001 ORDER BY match_id"
+            ).fetchall()
+        self.assertEqual(
+            [
+                ("Final", "Main Draw", "正赛"),
+                ("Preliminary", "", None),
+                ("Qualification - Group 1", "", None),
+                ("Round of 32", "Qualification", None),
+                ("Semifinal", "", None),
+            ],
+            stages,
+        )
+
     def side_player_ids(self, event_id: int) -> list[tuple[str, str, int | None]]:
         conn = sqlite3.connect(self.db_path)
         rows = conn.execute(

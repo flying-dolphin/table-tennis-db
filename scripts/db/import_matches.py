@@ -48,6 +48,9 @@ from _import_summary import write_summary  # noqa: E402
 
 
 PLAYER_TOKEN_RE = re.compile(r"^(.+?)\s*\((\w+)\)$")
+EVENT_STATS_MAIN_DRAW_ROUND_RE = re.compile(
+    r"final|semifinal|quarterfinal|round of (?:16|32|64|128|256)", re.IGNORECASE
+)
 DEFAULT_SAME_NAME_PLAYERS_PATH = PROJECT_ROOT / "scripts" / "data" / "same_name_players.txt"
 DEFAULT_PLAYER_MATCHES_DIR = PROJECT_ROOT / "data" / "matches_complete" / "cn"
 DEFAULT_PLAYER_COUNTRY_HISTORY_PATH = PROJECT_ROOT / "data" / "player_country_history.json"
@@ -866,6 +869,13 @@ def import_matches(
                 side_b,
             )
 
+            stage_zh = match.get("stage_zh")
+            # event-stats rows omit the stage. Keep the source stage in the
+            # identity key above for matching existing player-centric evidence.
+            if not stage and match.get("source_row_id") and EVENT_STATS_MAIN_DRAW_ROUND_RE.fullmatch(round_):
+                stage = "Main Draw"
+                stage_zh = stage_zh or "正赛"
+
             cursor.execute(
                 insert_match_sql,
                 (
@@ -875,7 +885,7 @@ def import_matches(
                     event_year,
                     sub_event,
                     stage,
-                    match.get("stage_zh"),
+                    stage_zh,
                     round_,
                     match.get("round_zh"),
                     side_a_key,
