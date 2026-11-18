@@ -4630,6 +4630,19 @@
       },
       "updated_at": "2026-04-15T00:48:20.926127"
     },
+    "wtt youth contender ballarat": {
+      "original": "WTT Youth Contender Ballarat",
+      "translated": "WTT青少年挑战赛巴拉瑞特站",
+      "categories": [
+        "events"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "events": "event_name"
+      },
+      "updated_at": "2026-11-18T10:02:51.881319"
+    },
     "wtt youth contender luxembourg": {
       "original": "WTT Youth Contender Luxembourg",
       "translated": "WTT青少年挑战赛卢森堡站",
@@ -38808,6 +38821,19 @@
         "players": "player_name"
       },
       "updated_at": "2026-04-21T17:59:49.528883"
+    },
+    "li tianyang": {
+      "original": "LI Tianyang",
+      "translated": "李天阳",
+      "categories": [
+        "players"
+      ],
+      "source": "manual",
+      "review_status": "pending",
+      "validators": {
+        "players": "player_name"
+      },
+      "updated_at": "2026-11-18T17:59:49.528883"
     },
     "li carolyn": {
       "original": "LI Carolyn",
