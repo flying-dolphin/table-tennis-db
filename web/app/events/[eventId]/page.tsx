@@ -215,6 +215,7 @@ type EventDetail = {
     code: string;
     champion: EventChampion | null;
     bracket: Array<{ code: string; drawCode?: string | null; label: string; order: number; matches: BracketMatch[] }>;
+    groupRounds: EventDetail["bracket"];
     roundRobinView: EventRoundRobinView | null;
     teamKnockoutView: EventTeamKnockoutView | null;
     presentationMode: "knockout" | "staged_round_robin" | "team_knockout_with_bronze";
@@ -3642,6 +3643,7 @@ function EventDetailContent() {
         ...subEvent,
         champion: detail?.champion ?? subEvent.champion,
         bracket: detail?.bracket ?? [],
+        groupRounds: detail?.groupRounds ?? [],
         roundRobinView: detail?.roundRobinView ?? null,
         teamKnockoutView: detail?.teamKnockoutView ?? null,
         presentationMode: detail?.presentationMode ?? data.presentationMode,
@@ -3658,6 +3660,7 @@ function EventDetailContent() {
   const currentDetailLoaded = detailMap[resolvedSubEvent] != null;
   const currentDetail = subEventViews.find((detail) => detail.code === resolvedSubEvent);
   const currentBracket = currentDetail?.bracket ?? [];
+  const currentGroupRounds = currentDetail?.groupRounds ?? [];
   const currentChampion = currentDetail?.champion ?? null;
   const currentRoundRobinView = currentDetail?.roundRobinView ?? data.roundRobinView ?? null;
   const currentTeamKnockoutView = currentDetail?.teamKnockoutView ?? data.teamKnockoutView ?? null;
@@ -3693,7 +3696,9 @@ function EventDetailContent() {
           <ChampionBanner champion={currentChampion} subEvent={currentSubEventMeta} rounds={currentBracket} />
         )}
         <div className="mt-2">
-          {useScheduleTabs ? (
+          {currentDetailLoaded && currentGroupRounds.length > 0 ? (
+            <ScheduleView rounds={currentGroupRounds} eventReturnHref={eventReturnHref} />
+          ) : useScheduleTabs ? (
             <>
               <LiveViewTabs mode={viewMode} onChange={handleChangeViewMode} />
               {viewMode === "session" ? (

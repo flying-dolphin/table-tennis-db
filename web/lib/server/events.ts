@@ -6,6 +6,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 
 const CORE_SUB_EVENT_CODES = ['WS', 'MS', 'WD', 'MD', 'WT', 'MT', 'XD', 'XT', 'JWS', 'JWD', 'JWT'] as const;
+const YOUTH_SUB_EVENT_CODE = /^U(?:11|13|15|17|19|21)(?:[MW][SDT]|X[DT]|GS)$/;
 
 type SidePlayer = {
   playerId: number | null;
@@ -4993,7 +4994,7 @@ export function getEventDetail(
       ...scheduleCounts.map((item) => item.code),
       ...existingSubEvents.map((item) => item.code),
     ].filter(
-      (code) => validCodes.has(code),
+      (code) => validCodes.has(code) || YOUTH_SUB_EVENT_CODE.test(code),
     ),
   );
   const preferredOrder: string[] = [...CORE_SUB_EVENT_CODES];
@@ -5127,14 +5128,22 @@ export function getEventDetail(
     };
   };
 
-  const bracketForSubEvent = (subEventCode: string): EventBracketRound[] => {
+  const roundsForSubEvent = (subEventCode: string, groupOnly = false): EventBracketRound[] => {
     if (useCurrentEventModel) {
       return buildCurrentBracketForSubEvent(eventId, subEventCode);
     }
 
+    const roundSource = groupOnly
+      ? `SELECT match_id, round AS draw_round, 0 AS round_order,
+                NULL AS bracket_position, NULL AS side_a_previous_match_id, NULL AS side_b_previous_match_id
+         FROM matches WHERE event_id = ? AND sub_event_type_code = ?`
+      : `SELECT match_id, draw_round, round_order, bracket_position,
+                side_a_previous_match_id, side_b_previous_match_id
+         FROM event_draw_matches WHERE event_id = ? AND sub_event_type_code = ?`;
     const drawRows = db
       .prepare(
         `
+          WITH match_rounds AS (${roundSource})
           SELECT
             edm.match_id AS matchId,
             m.team_tie_id AS scheduleMatchId,
@@ -5155,20 +5164,18 @@ export function getEventDetail(
             msp.player_country AS playerCountry,
             p.slug,
             p.name_zh AS playerNameZh
-          FROM event_draw_matches edm
+          FROM match_rounds edm
           JOIN matches m ON m.match_id = edm.match_id
           JOIN match_sides ms ON ms.match_id = m.match_id
           JOIN match_side_players msp ON msp.match_side_id = ms.match_side_id
           LEFT JOIN players p ON p.player_id = msp.player_id
-          WHERE edm.event_id = ?
-            AND edm.sub_event_type_code = ?
           ORDER BY edm.round_order ASC, COALESCE(edm.bracket_position, edm.match_id) ASC, edm.match_id ASC, ms.side_no ASC, msp.player_order ASC
         `,
       )
       .all(eventId, subEventCode) as Array<{
       matchId: number;
       scheduleMatchId: number | null;
-      drawRound: string;
+      drawRound: string | null;
       roundOrder: number;
       bracketPosition: number | null;
       sideAPreviousMatchId: number | null;
@@ -5203,14 +5210,19 @@ export function getEventDetail(
     >();
 
     for (const row of drawRows) {
+      const group = groupOnly ? row.drawRound?.trim().match(/^Qualification\s*-\s*Group\s+(\d+)$/i) : null;
+      if (groupOnly && !group) return [];
+      const groupNumber = group ? Number(group[1]) : null;
       const current =
         matchMap.get(row.matchId) ??
         {
           matchId: row.matchId,
           scheduleMatchId: row.scheduleMatchId,
-          drawRound: row.drawRound,
-          roundLabel: roundLabel(row.drawRound ?? row.sourceRound, row.sourceRoundZh),
-          roundOrder: row.roundOrder,
+          drawRound: groupNumber === null ? row.drawRound ?? '' : `G${groupNumber}`,
+          roundLabel: groupNumber === null
+            ? roundLabel(row.drawRound ?? row.sourceRound, row.sourceRoundZh)
+            : `资格赛 · 第 ${groupNumber} 组`,
+          roundOrder: groupNumber ?? row.roundOrder,
           bracketPosition: row.bracketPosition,
           matchScore: row.matchScore,
           games: parseGames(row.games),
@@ -5292,6 +5304,13 @@ export function getEventDetail(
   const buildSubEventDetail = (subEventCode: string) => {
     const roundRobinView = roundRobinViewForSubEvent(subEventCode);
     const teamKnockoutView = teamKnockoutViewForSubEvent(subEventCode);
+    const bracket = roundsForSubEvent(subEventCode);
+    const groupRounds =
+      event.lifecycleStatus === 'completed' && !useCurrentEventModel && bracket.length === 0 &&
+      override?.sub_event_type_code !== subEventCode && !subEventCode.endsWith('T') &&
+      (matchCountMap.get(subEventCode) ?? 0) > 0
+        ? roundsForSubEvent(subEventCode, true)
+        : [];
     const presentationMode: EventPresentationMode =
       override && subEventCode === override.sub_event_type_code
         ? isRoundRobinOverride(override)
@@ -5308,7 +5327,8 @@ export function getEventDetail(
     return {
       code: subEventCode,
       champion: championForSubEvent(subEventCode, teamKnockoutView),
-      bracket: bracketForSubEvent(subEventCode),
+      bracket,
+      groupRounds,
       roundRobinView,
       teamKnockoutView,
       presentationMode,
